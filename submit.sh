@@ -16,18 +16,18 @@ tag=$2
 for mass in 110 115 120 125 126 130 135 140 150 160 170 180 190 200 250 300 350 400 450 500 550 600
 #for mass in 105 115 125 135 145 175 200 300
 do
-  if [ $3 = exp ] || [ $3 = obs ] 
+  if [ $4 = sig ]
       then
       echo "bsub -q cmscaf1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/${3}_${mass}${tag}_${tag}.err computeSignificance.sh ${tag} ${mass} ${3} ${baseDir}"
             bsub -q       1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/${3}_${mass}${tag}_${tag}.err computeSignificance.sh ${tag} ${mass} ${3} ${baseDir}
-  elif [ $3 = mlf ] 
+  elif [ $4 = mlf ] 
       then
-      echo "bsub -q cmscaf1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeMuHatHWW.sh ${tag} ${mass} ${baseDir}"
-            bsub -q       1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeMuHatHWW.sh ${tag} ${mass} ${baseDir}
-  elif [ $3 = lim ] 
+      echo "bsub -q cmscaf1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeMuHatHWW.sh ${tag} ${mass} ${3} ${baseDir}"
+            bsub -q       1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeMuHatHWW.sh ${tag} ${mass} ${3} ${baseDir}
+  elif [ $4 = lim ] 
       then
-      echo "bsub -q cmscaf1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeLimit.sh ${tag} ${mass} ${baseDir}"
-            bsub -q       1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeLimit.sh ${tag} ${mass} ${baseDir}
+      echo "bsub -q cmscaf1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeLimit.sh ${tag} ${mass} ${3} ${baseDir}"
+            bsub -q       1nd -o ${LogDir}/${3}_${mass}_${tag}.out -e ${LogDir}/$3_${mass}_${tag}.err computeLimit.sh ${tag} ${mass} ${3} ${baseDir}
   else exit
   fi
 done

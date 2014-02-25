@@ -46,9 +46,11 @@ for mass in 110 115 120 125 130 135 140 150 160 170 180 190 200 250 300 350 400 
   #combineCards.py -S hwwof_0j_shape_8TeV.txt hwwof_1j_shape_8TeV.txt hwwsf_0j_cut_8TeV.txt hwwsf_1j_cut_8TeV.txt hwwof_2j_cut_8TeV.txt hwwsf_2j_cut_8TeV.txt \
   #                   hwwof_0j_shape_7TeV.txt hwwof_1j_shape_7TeV.txt hwwsf_0j_cut_7TeV.txt hwwsf_1j_cut_7TeV.txt hwwsf_2j_cut_7TeV.txt hwwof_2j_cut_7TeV.txt >  hww_7p8TeV.text
   combineCards.py -S hwwof_0j_shape_8TeV.txt hwwof_1j_shape_8TeV.txt hwwsf_0j_cut_8TeV.txt hwwsf_1j_cut_8TeV.txt \
-                     hwwof_0j_shape_7TeV.txt hwwof_1j_shape_7TeV.txt hwwsf_0j_cut_7TeV.txt hwwsf_1j_cut_7TeV.txt >  hww_7p8TeV.text
+                     hwwof_0j_shape_7TeV.txt hwwof_1j_shape_7TeV.txt hwwsf_0j_cut_7TeV.txt hwwsf_1j_cut_7TeV.txt \
+		     hwwsf_2j_cut_?TeV.txt   hwwof_2j_shape_?TeV.txt >  hww_7p8TeV.text
   combineCards.py -S hwwof_0j_cut_8TeV.txt   hwwof_1j_cut_8TeV.txt   hwwsf_0j_cut_8TeV.txt hwwsf_1j_cut_8TeV.txt \
-                     hwwof_0j_cut_7TeV.txt   hwwof_1j_cut_7TeV.txt   hwwsf_0j_cut_7TeV.txt hwwsf_1j_cut_7TeV.txt >  hww_7p8TeV_cut.text
+                     hwwof_0j_cut_7TeV.txt   hwwof_1j_cut_7TeV.txt   hwwsf_0j_cut_7TeV.txt hwwsf_1j_cut_7TeV.txt \
+		     hwwsf_2j_cut_?TeV.txt   hwwof_2j_cut_?TeV.txt   >  hww_7p8TeV_cut.text
   # VBF analysis
   combineCards.py -S hwwsf_2j_cut_?TeV.txt hwwof_2j_cut_?TeV.txt   > hww_7p8TeV_vbf_cut.text
   combineCards.py -S hwwsf_2j_cut_?TeV.txt hwwof_2j_shape_?TeV.txt > hww_7p8TeV_vbf_bdt.text
