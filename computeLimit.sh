@@ -18,13 +18,13 @@ cd /tmp/$USER/${seed}/;
 
 if [ $3 = "exp" ]; then
   # --expectSignal=1
-  echo "combine -M Asymptotic ${workspace} --newExpected=1 -t -1 -m ${mass} -n hWWExp${tag} -s ${seed} | tee limitExp${tag}.txt";
-        combine -M Asymptotic ${workspace} --newExpected=1 -t -1 -m ${mass} -n hWWExp${tag} -s ${seed} | tee limitExp${tag}.txt;
+  echo "combine -M Asymptotic ${workspace} --newExpected=1 -t -1 -m ${mass} -n hWWExp${tag} -s ${seed} --rMax 10| tee limitExp${tag}.txt";
+        combine -M Asymptotic ${workspace} --newExpected=1 -t -1 -m ${mass} -n hWWExp${tag} -s ${seed} --rMax 10| tee limitExp${tag}.txt;
   mv limitExp${tag}.txt $baseDir/$mass/;
   mv higgsCombinehWWExp${tag}.Asymptotic.mH${mass}.${seed}.root $baseDir/$mass/higgsCombinehWWExp${tag}.Asymptotic.mH${mass}.root;
 elif [ $3 = "obs" ]; then
-  echo "combine -M Asymptotic ${workspace} --newExpected=1 -m ${mass} -n hWW${tag} -s ${seed} | tee limit${tag}.txt";
-        combine -M Asymptotic ${workspace} --newExpected=1 -m ${mass} -n hWW${tag} -s ${seed} | tee limit${tag}.txt;
+  echo "combine -M Asymptotic ${workspace} --newExpected=1 -m ${mass} -n hWW${tag} -s ${seed} --rMax 10| tee limit${tag}.txt";
+        combine -M Asymptotic ${workspace} --newExpected=1 -m ${mass} -n hWW${tag} -s ${seed} --rMax 10| tee limit${tag}.txt;
   mv limit${tag}.txt $baseDir/$mass/;
   mv higgsCombinehWW${tag}.Asymptotic.mH${mass}.${seed}.root $baseDir/$mass/higgsCombinehWW${tag}.Asymptotic.mH${mass}.root;
 elif [ $3 = "toy" ]; then
