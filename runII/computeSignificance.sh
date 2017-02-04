@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # set env
-source ~/EVAL_SH66 7_1_5;
+source ~/EVAL_SH66 7_4_7;
 
 tag=$1;
 mass=$2;
