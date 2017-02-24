@@ -15,7 +15,7 @@ echo "dummy"
 
 else
 # 0-jet
-cd /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
+cd $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
 ls histo_limits_zllhinvll0j_*_shape_13TeV2015_bin0.txt > kkk0
 cp kkk0 kkk1
 sed -i 's/_shape_13TeV2015_bin0.txt/*.txt/' kkk0
@@ -26,13 +26,13 @@ chmod a+x kkk3;./kkk3;
 
 ls histo_limits_zllhinvll0j_*.text > kkk4
 sed -i 's/.text//' kkk4
-awk '{print"./computeLimit.sh "$1" 0 obs /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
+awk '{print"./computeLimit.sh "$1" 0 obs $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
 chmod a+x kkk5;
 cd -
-/home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
+$HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
 
 # 1-jet
-cd /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
+cd $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
 ls histo_limits_zllhinvll1j_*_shape_13TeV2015_bin0.txt > kkk0
 cp kkk0 kkk1
 sed -i 's/_shape_13TeV2015_bin0.txt/*.txt/' kkk0
@@ -43,13 +43,13 @@ chmod a+x kkk3;./kkk3;
 
 ls histo_limits_zllhinvll1j_*.text > kkk4
 sed -i 's/.text//' kkk4
-awk '{print"./computeLimit.sh "$1" 0 obs /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
+awk '{print"./computeLimit.sh "$1" 0 obs $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
 chmod a+x kkk5;
 cd -
-/home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
+$HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
 
 # 0+1-jet
-cd /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
+cd $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0;
 ls histo_limits_zllhinvll1j_*_shape_13TeV2015_bin0.txt > kkk0
 cp kkk0 kkk1
 sed -i 's/_shape_13TeV2015_bin0.txt/*.txt/' kkk0;sed -i 's/zllhinvll1j/zllhinvll?j/' kkk0;
@@ -60,10 +60,10 @@ chmod a+x kkk3;./kkk3;
 
 ls histo_limits_zllhinvllnj_*.text > kkk4
 sed -i 's/.text//' kkk4;sed -i 's/zllhinvll1j/zllhinvllnj/' kkk4;
-awk '{print"./computeLimit.sh "$1" 0 obs /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
+awk '{print"./computeLimit.sh "$1" 0 obs $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv"}' kkk4 > kkk5
 chmod a+x kkk5;
 cd -
-/home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
+$HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk5;
 
-rm /home/ceballos/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk*;
+rm $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/0/kkk*;
 fi

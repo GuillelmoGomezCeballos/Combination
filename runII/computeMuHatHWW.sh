@@ -21,7 +21,7 @@ if [ $3 = "exp" ]; then
   mv mlfithWWExp${tag}.root $baseDir/$mass/;
 elif [ $3 = "obs" ]; then
   echo "combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-2 --rMax=4 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt"
-        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-10 --rMax=40 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt;
+        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-2 --rMax=4 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt;
   mv higgsCombinehWW${tag}.MaxLikelihoodFit.mH${mass}.root mlf${tag}.txt $baseDir/$mass/;
   mv mlfithWW${tag}.root $baseDir/$mass/;
 else
