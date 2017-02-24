@@ -26,7 +26,7 @@ chmod a+x kkk3;./kkk3;
 
 ls histo_limits_zll1hinvllnj_*.text > kkk4
 sed -i 's/.text//' kkk4;sed -i 's/zll1hinvll1j/zll1hinvllnj/' kkk4;
-awk '{printf("./computeLimit.sh %s %d exp $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv\n",$1,ENVIRON["option"])}' kkk4 > kkk5
+awk '{printf("./computeLimit.sh %s %d obs $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv\n",$1,ENVIRON["option"])}' kkk4 > kkk5
 chmod a+x kkk5;
 cd -
 $HOME/releases/CMSSW_7_4_7/src/cards/cards_inv/$option/kkk5;
