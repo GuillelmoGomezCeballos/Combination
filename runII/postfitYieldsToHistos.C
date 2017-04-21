@@ -9,18 +9,20 @@ const int totalChannels=34;
 const int zzBins=11;
 const int wzBins=11;
 const int zhBins=12;
-//const int nBinMVA = 12; Double_t xbins[nBinMVA+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT
-const int nBinMVA = 12; Double_t xbins[nBinMVA+1] = {0, 50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET
+const int nBinMVACR = 11; Double_t xbinsCR[nBinMVACR+1] =  {  -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT CR
+const int nBinMVASR = 12; Double_t xbinsSR[nBinMVASR+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT SR
+//const int nBinMVACR = 11; Double_t xbinsCR[nBinMVACR+1] = {	50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET SR
+//const int nBinMVASR = 12; Double_t xbinsSR[nBinMVASR+1] = {0, 50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET SR
 
 void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString datacard="histo_limits_zll3hinvllnj_sm.text") {
   // Set up histogram objects
   TFile *histo_zz_postfit_nice = TFile::Open("histozz_postfit_nice.root", "RECREATE");
   TH1F *histo_zz[7], *histo_wz[7], *histo_zh[8];
-  for(int i=0; i<7; i++)  histo_zz[i] = new TH1F(Form("histo%d_zz",i), Form("histo%d",i), nBinMVA, xbins);
+  for(int i=0; i<7; i++)  histo_zz[i] = new TH1F(Form("histo%d_zz",i), Form("histo%d",i), nBinMVACR, xbinsCR);
   TFile *histo_wz_postfit_nice = TFile::Open("histowz_postfit_nice.root", "RECREATE");
-  for(int i=0; i<7; i++)  histo_wz[i] = new TH1F(Form("histo%d_wz",i), Form("histo%d",i), nBinMVA, xbins);
+  for(int i=0; i<7; i++)  histo_wz[i] = new TH1F(Form("histo%d_wz",i), Form("histo%d",i), nBinMVACR, xbinsCR);
   TFile *histo_zh_postfit_nice = TFile::Open("histozh_postfit_nice.root", "RECREATE");
-  for(int i=0; i<8; i++)  histo_zh[i] = new TH1F(Form("histo%d_zh",i), Form("histo%d",i), nBinMVA, xbins);
+  for(int i=0; i<8; i++)  histo_zh[i] = new TH1F(Form("histo%d_zh",i), Form("histo%d",i), nBinMVASR, xbinsSR);
 
   // Read in information from text files
   ifstream postfit_yields_file(postfit_yields.Data());
@@ -38,10 +40,10 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
       int theChannel=1, theBin;
       while(iss >> dataEvents) {
         if(theChannel <= zzBins) {
-          theBin = theChannel+1;
+          theBin = theChannel;
           histo_zz[0]->SetBinContent(theBin, (double)((int)dataEvents));
         } else if(theChannel > zzBins && theChannel <= zzBins+wzBins) {
-          theBin = theChannel-zzBins+1;
+          theBin = theChannel-zzBins;
           histo_wz[0]->SetBinContent(theBin, (double)((int)dataEvents));
         } else if(theChannel > zzBins+wzBins && theChannel <= totalChannels) {
           theBin = theChannel - zzBins - wzBins;
@@ -91,11 +93,11 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
     // cout << theChannel << " " << theHisto << std::endl;
     // Fill the appropriate histogram with the yield and error
     if(theChannel <= zzBins) {
-      theBin = theChannel+1;
+      theBin = theChannel;
       histo_zz[theHisto]->SetBinContent( theBin, N_SB  );
       histo_zz[theHisto]->SetBinError  ( theBin, dN_SB );
     } else if(theChannel > zzBins && theChannel <= zzBins+wzBins) {
-      theBin = theChannel-zzBins+1;
+      theBin = theChannel-zzBins;
       histo_wz[theHisto]->SetBinContent( theBin, N_SB  );
       histo_wz[theHisto]->SetBinError  ( theBin, dN_SB );
     } else if(theChannel > zzBins+wzBins && theChannel <= totalChannels) {
