@@ -16,7 +16,7 @@ echo "dummy"
 else
 #cat `ls cards_inv/330/histo_limits_zz4l3hinvllllnj_shape_13TeV2016_bin*.txt | sort -V` `ls cards_inv/330/histo_limits_wz3l3l_13TeV2016_bin*.txt | sort -V` `ls cards_inv/330/histo_limits_zll3hinvll?j_sm_shape_13TeV2016_bin*.txt | sort -V` histo_limits_zll3hinvllnj_sm.text
 ## 0+1-jet
-cd /home/dhsu/cms/cmssw/045/CMSSW_7_4_7/src/Combination/runII/cards_inv/$2;
+cd $CMSSW_BASE/src/Combination/runII/cards_inv/$2;
 rm -rf emptybins
 mkdir emptybins
 for i in `grep "0.00000 \+0.00000 \+0.00000 \+0.00000 \+0.00000 \+0.00000 \+0.00000" histo_limits_zll3hinvll1j_*_shape_13TeV2016_bin*.txt -l`
@@ -51,10 +51,10 @@ done < kkk2
 
 ls histo_limits_zll3hinvllnj_*.text > kkk4
 sed -i 's/.text//' kkk4;sed -i 's/zll3hinvll1j/zll3hinvllnj/' kkk4;
-awk '{print"./computeLimit.sh "$1" "'"$2"'" obs /home/dhsu/cms/cmssw/045/CMSSW_7_4_7/src/Combination/runII/cards_inv"}' kkk4 > kkk5
+awk '{print"./computeLimit.sh "$1" "'"$2"'" obs $CMSSW_BASE/src/Combination/runII/cards_inv"}' kkk4 > kkk5
 chmod a+x kkk5;
 cd -
-/home/dhsu/cms/cmssw/045/CMSSW_7_4_7/src/Combination/runII/cards_inv/$2/kkk5;
+$CMSSW_BASE/src/Combination/runII/cards_inv/$2/kkk5;
 
-#rm /home/dhsu/cms/cmssw/045/CMSSW_7_4_7/src/Combination/runII/cards_inv/$2/kkk*;
+#rm $CMSSW_BASE/src/Combination/runII/cards_inv/$2/kkk*;
 fi

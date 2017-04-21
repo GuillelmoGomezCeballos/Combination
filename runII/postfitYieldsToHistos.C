@@ -9,7 +9,8 @@ const int totalChannels=34;
 const int zzBins=11;
 const int wzBins=11;
 const int zhBins=12;
-const int MVAVarType = 3; const int nBinMVA = 12; Double_t xbins[nBinMVA+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; TString addChan = "3";
+//const int nBinMVA = 12; Double_t xbins[nBinMVA+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT
+const int nBinMVA = 12; Double_t xbins[nBinMVA+1] = {0, 50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET
 
 void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString datacard="histo_limits_zll3hinvllnj_sm.text") {
   // Set up histogram objects
@@ -87,7 +88,7 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
     }
     if(theHisto<0) continue;
     // cout << line << std::endl;
-    // cout << theChannel << theHisto << std::endl;
+    // cout << theChannel << " " << theHisto << std::endl;
     // Fill the appropriate histogram with the yield and error
     if(theChannel <= zzBins) {
       theBin = theChannel+1;
@@ -99,7 +100,7 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
       histo_wz[theHisto]->SetBinError  ( theBin, dN_SB );
     } else if(theChannel > zzBins+wzBins && theChannel <= totalChannels) {
       theBin = theChannel - zzBins - wzBins;
-      cout << chstr << " " << theChannel << " " << theBin << std::endl;
+      //cout << chstr << " " << theChannel << " " << theBin << std::endl;
       histo_zh[theHisto]->SetBinContent( theBin, usePostFit ? N_SB   : N_pre  );
       histo_zh[theHisto]->SetBinError  ( theBin, usePostFit ? dN_SB  : dN_pre );
     }
