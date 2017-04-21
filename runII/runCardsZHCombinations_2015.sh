@@ -4,7 +4,7 @@
 #grep -e combine -e Observed -e "Expected " log|awk '{if(NR%7==1)printf("%80s ",$9);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}'
 #grep -e combine -e Observed -e "Expected " log|awk '{if(NR%7==1)printf("%80s ",$9);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}' |grep mh|awk '{a=0.8839-0.1227;printf("%6.2f %6.2f %6.2f %6.2f %6.2f %6.2f %6.2f\n",a*$2,a*$5,a*$5,a*$3,a*$4,a*$6,a*$7)}'
 
-source ~/EVAL_SH66 7_1_5;
+source ~/EVAL_SH66 7_4_7;
 
 option=$1;
 

@@ -3,7 +3,7 @@
 #combine -M AsymptoticNew ${workspace} -m ${mass} --scanMin=0.01 --scanMax=5 --nPoints=100 -n hWW${tag} | tee limit${tag}.txt;
 
 # set env
-source ~/EVAL_SH66 7_1_5;
+source ~/EVAL_SH66 7_4_7;
 
 tag=$1;
 mass=$2;
