@@ -7,7 +7,7 @@ void makeFinalPlot_Moriond17_WWSS(){
 							    13,   14,	15,   16,
 							    17,   18,	19,   20};
   const int nBinMJJ = 4; Float_t xbinsMJJ[nBinMJJ+1] = {500, 800, 1100, 1500, 2000};
-  const int nBinMLL = 4; Float_t xbinsMLL[nBinMLL+1] = {20, 100, 180, 400, 600};
+  const int nBinMLL = 4; Float_t xbinsMLL[nBinMLL+1] = {20, 100, 180, 300, 600};
 
   TH1D* histoMVA    = new TH1D("histoMVA"   , "histoMVA"   , nBinMVA, xbins);
   TH1D* histoMVAMJJ = new TH1D("histoMVAMJJ", "histoMVAMJJ", nBinMJJ, xbinsMJJ);
