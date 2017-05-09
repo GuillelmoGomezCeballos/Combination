@@ -5,12 +5,14 @@
 #include <iostream>
 #include <sstream>
 using namespace std;
-const int totalChannels=34;
-const int zzBins=11;
-const int wzBins=11;
-const int zhBins=12;
-const int nBinMVACR = 11; Double_t xbinsCR[nBinMVACR+1] =  {  -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT CR
-const int nBinMVASR = 12; Double_t xbinsSR[nBinMVASR+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT SR
+const int totalChannels=30;
+const int zzBins=10;
+const int wzBins=10;
+const int zhBins=10;
+//const int nBinMVACR = 11; Double_t xbinsCR[nBinMVACR+1] =  {  -1,   0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT CR
+//const int nBinMVASR = 12; Double_t xbinsSR[nBinMVASR+1] =  {-2, -1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT SR
+const int nBinMVACR = 10; Double_t xbinsCR[nBinMVACR+1] =  {  0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT CR
+const int nBinMVASR = 10; Double_t xbinsSR[nBinMVASR+1] =  {  0.2, 0.3, 0.4, 0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9}; // BDT SR
 //const int nBinMVACR = 11; Double_t xbinsCR[nBinMVACR+1] = {	50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET SR
 //const int nBinMVASR = 12; Double_t xbinsSR[nBinMVASR+1] = {0, 50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600}; // MET SR
 
@@ -73,7 +75,7 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
 
     // Assign the histo number based on process
     if(theChannel <= zzBins+wzBins) {
-      if     (process=="EM"   ) theHisto=1;
+      if     (process=="Fake" ) theHisto=1;
       else if(process=="Zg"   ) theHisto=2;
       else if(process=="WZ"   ) theHisto=3;
       else if(process=="ZZ"   ) theHisto=4;
@@ -102,7 +104,12 @@ void postfitYieldsToHistos(TString postfit_yields="postfit_yields.txt", TString 
       histo_wz[theHisto]->SetBinError  ( theBin, dN_SB );
     } else if(theChannel > zzBins+wzBins && theChannel <= totalChannels) {
       theBin = theChannel - zzBins - wzBins;
-      //cout << chstr << " " << theChannel << " " << theBin << std::endl;
+
+      // Avoiding nasty distributions
+      if(N_SB <= 0) {N_SB = 0; dN_SB = 0;}
+      if(N_SB > 0 && dN_SB/N_SB > 1.0) {dN_SB = N_SB;}
+      if(N_SB > 0 && dN_SB/N_SB > 0.2) cout << chstr << " " << theChannel << " " << theBin << " " << N_SB << " " << dN_SB << " " <<  dN_SB/N_SB   <<  std::endl;
+
       histo_zh[theHisto]->SetBinContent( theBin, usePostFit ? N_SB   : N_pre  );
       histo_zh[theHisto]->SetBinError  ( theBin, usePostFit ? dN_SB  : dN_pre );
     }
