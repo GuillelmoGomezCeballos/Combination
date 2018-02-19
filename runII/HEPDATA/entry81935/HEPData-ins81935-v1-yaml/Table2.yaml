@@ -1,0 +1,508 @@
+dependent_variables:
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Data}
+  values:
+  - {value: 47}
+  - {value: 19}
+  - {value: 10}
+  - {value:  9}
+  - {value: 26}
+  - {value: 22}
+  - {value:  7}
+  - {value: 11}
+  - {value: 10}
+  - {value:  7}
+  - {value:  5}
+  - {value:  8}
+  - {value:  7}
+  - {value:  4}
+  - {value:  4}
+  - {value:  5}
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW EWK}
+  values:
+  - errors:
+    - asymerror: {minus: -1.253, plus: 1.253}
+    value: 4.968
+  - errors:
+    - asymerror: {minus: -1.062, plus: 1.062}
+    value: 4.314
+  - errors:
+    - asymerror: {minus: -1.067, plus: 1.067}
+    value: 4.396
+  - errors:
+    - asymerror: {minus: -1.695, plus: 1.695}
+    value: 7.213
+  - errors:
+    - asymerror: {minus: -1.212, plus: 1.212}
+    value: 4.766
+  - errors:
+    - asymerror: {minus: -0.958, plus: 0.958}
+    value: 3.929
+  - errors:
+    - asymerror: {minus: -1.038, plus: 1.038}
+    value: 4.289
+  - errors:
+    - asymerror: {minus: -1.882, plus: 1.882}
+    value: 8.097
+  - errors:
+    - asymerror: {minus: -0.521, plus: 0.521}
+    value: 2.156
+  - errors:
+    - asymerror: {minus: -0.627, plus: 0.627}
+    value: 2.413
+  - errors:
+    - asymerror: {minus: -0.626, plus: 0.626}
+    value: 2.547
+  - errors:
+    - asymerror: {minus: -1.369, plus: 1.369}
+    value: 5.712
+  - errors:
+    - asymerror: {minus: -0.282, plus: 0.282}
+    value: 1.128
+  - errors:
+    - asymerror: {minus: -0.315, plus: 0.315}
+    value: 1.218
+  - errors:
+    - asymerror: {minus: -0.420, plus: 0.420}
+    value: 1.754
+  - errors:
+    - asymerror: {minus: -0.853, plus: 0.853}
+    value: 3.660
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW QCD}
+  values:
+  - errors:
+    - asymerror: {minus: -0.154, plus: 0.154}
+    value: 0.551
+  - errors:
+    - asymerror: {minus: -0.068, plus: 0.068}
+    value: 0.220
+  - errors:
+    - asymerror: {minus: -0.040, plus: 0.040}
+    value: 0.114
+  - errors:
+    - asymerror: {minus: -0.023, plus: 0.023}
+    value: 0.050
+  - errors:
+    - asymerror: {minus: -0.210, plus: 0.210}
+    value: 0.851
+  - errors:
+    - asymerror: {minus: -0.120, plus: 0.120}
+    value: 0.386
+  - errors:
+    - asymerror: {minus: -0.069, plus: 0.069}
+    value: 0.217
+  - errors:
+    - asymerror: {minus: -0.051, plus: 0.051}
+    value: 0.144
+  - errors:
+    - asymerror: {minus: -0.165, plus: 0.165}
+    value: 0.627
+  - errors:
+    - asymerror: {minus: -0.094, plus: 0.094}
+    value: 0.353
+  - errors:
+    - asymerror: {minus: -0.056, plus: 0.056}
+    value: 0.166
+  - errors:
+    - asymerror: {minus: -0.066, plus: 0.066}
+    value: 0.164
+  - errors:
+    - asymerror: {minus: -0.103, plus: 0.103}
+    value: 0.384
+  - errors:
+    - asymerror: {minus: -0.097, plus: 0.097}
+    value: 0.324
+  - errors:
+    - asymerror: {minus: -0.067, plus: 0.067}
+    value: 0.196
+  - errors:
+    - asymerror: {minus: -0.084, plus: 0.084}
+    value: 0.273
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WZ}
+  values:
+  - errors:
+    - asymerror: {minus: -1.167, plus: 1.167}
+    value: 4.610
+  - errors:
+    - asymerror: {minus: -0.864, plus: 0.864}
+    value: 3.390
+  - errors:
+    - asymerror: {minus: -0.555, plus: 0.555}
+    value: 1.812
+  - errors:
+    - asymerror: {minus: -0.405, plus: 0.405}
+    value: 1.255
+  - errors:
+    - asymerror: {minus: -0.861, plus: 0.861}
+    value: 3.397
+  - errors:
+    - asymerror: {minus: -0.625, plus: 0.625}
+    value: 2.493
+  - errors:
+    - asymerror: {minus: -0.367, plus: 0.367}
+    value: 1.197
+  - errors:
+    - asymerror: {minus: -0.381, plus: 0.381}
+    value: 1.224
+  - errors:
+    - asymerror: {minus: -0.375, plus: 0.375}
+    value: 1.501
+  - errors:
+    - asymerror: {minus: -0.317, plus: 0.317}
+    value: 1.242
+  - errors:
+    - asymerror: {minus: -0.227, plus: 0.227}
+    value: 0.680
+  - errors:
+    - asymerror: {minus: -0.238, plus: 0.238}
+    value: 0.779
+  - errors:
+    - asymerror: {minus: -0.162, plus: 0.162}
+    value: 0.633
+  - errors:
+    - asymerror: {minus: -0.193, plus: 0.193}
+    value: 0.697
+  - errors:
+    - asymerror: {minus: -0.189, plus: 0.189}
+    value: 0.555
+  - errors:
+    - asymerror: {minus: -0.192, plus: 0.192}
+    value: 0.590
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: ZZ}
+  values:
+  - errors:
+    - asymerror: {minus: -0.011, plus: 0.011}
+    value: 0.042
+  - errors:
+    - asymerror: {minus: -0.005, plus: 0.005}
+    value: 0.015
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.008
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.005
+  - errors:
+    - asymerror: {minus: -0.007, plus: 0.007}
+    value: 0.027
+  - errors:
+    - asymerror: {minus: -0.004, plus: 0.004}
+    value: 0.014
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.006
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.005
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+    value: 0.012
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.005
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.005
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.004
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.007
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.004
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.003
+  - errors:
+    - asymerror: {minus: -0.001, plus: 0.001}
+    value: 0.003
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Triboson}
+  values:
+  - errors:
+    - asymerror: {minus: -0.352, plus: 0.352}
+    value: 0.932
+  - errors:
+    - asymerror: {minus: -0.265, plus: 0.265}
+    value: 0.463
+  - errors:
+    - asymerror: {minus: -0.134, plus: 0.134}
+    value: 0.334
+  - errors:
+    - asymerror: {minus: -0.101, plus: 0.101}
+    value: 0.108
+  - errors:
+    - asymerror: {minus: -0.293, plus: 0.293}
+    value: 1.377
+  - errors:
+    - asymerror: {minus: -0.195, plus: 0.195}
+    value: 0.256
+  - errors:
+    - asymerror: {minus: -0.103, plus: 0.103}
+    value: 0.300
+  - errors:
+    - asymerror: {minus: -0.046, plus: 0.046}
+    value: 0.156
+  - errors:
+    - asymerror: {minus: -0.166, plus: 0.166}
+    value: 0.697
+  - errors:
+    - asymerror: {minus: -0.123, plus: 0.123}
+    value: 0.342
+  - errors:
+    - asymerror: {minus: -0.156, plus: 0.156}
+    value: 0.196
+  - errors:
+    - asymerror: {minus: -0.057, plus: 0.057}
+    value: 0.090
+  - errors:
+    - asymerror: {minus: -0.064, plus: 0.064}
+    value: 0.171
+  - errors:
+    - asymerror: {minus: -0.063, plus: 0.063}
+    value: 0.198
+  - errors:
+    - asymerror: {minus: -0.046, plus: 0.046}
+    value: 0.158
+  - errors:
+    - asymerror: {minus: -0.066, plus: 0.066}
+    value: 0.111
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Wrong-sign}
+  values:
+  - errors:
+    - asymerror: {minus: -0.294, plus: 0.294}
+    value: 0.725
+  - errors:
+    - asymerror: {minus: -0.097, plus: 0.097}
+    value: 0.100
+  - errors:
+    - asymerror: {minus: -0.205, plus: 0.205}
+    value: 0.352
+  - errors:
+    - asymerror: {minus: -0.477, plus: 0.477}
+    value: 0.598
+  - errors:
+    - asymerror: {minus: -0.353, plus: 0.353}
+    value: 0.954
+  - errors:
+    - asymerror: {minus: -0.389, plus: 0.389}
+    value: 0.877
+  - errors:
+    - asymerror: {minus: -0.076, plus: 0.076}
+    value: 0.115
+  - errors:
+    - asymerror: {minus: -0.090, plus: 0.090}
+    value: 0.107
+  - errors:
+    - asymerror: {minus: -0.258, plus: 0.258}
+    value: 0.742
+  - errors:
+    - asymerror: {minus: -0.103, plus: 0.103}
+    value: 0.093
+  - errors:
+    - asymerror: {minus: -0.135, plus: 0.135}
+    value: 0.109
+  - errors:
+    - asymerror: {minus: -0.055, plus: 0.055}
+    value: 0.063
+  - errors:
+    - asymerror: {minus: -0.113, plus: 0.113}
+    value: 0.237
+  - errors:
+    - asymerror: {minus: -0.089, plus: 0.089}
+    value: 0.119
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+  - errors:
+    - asymerror: {minus: -0.044, plus: 0.044}
+    value: 0.058
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Wgamma}
+  values:
+  - errors:
+    - asymerror: {minus: -0.593, plus: 0.593}
+    value: 1.308
+  - errors:
+    - asymerror: {minus: -0.484, plus: 0.484}
+    value: 0.908
+  - errors:
+    - asymerror: {minus: -0.493, plus: 0.493}
+    value: 1.200
+  - errors:
+    - asymerror: {minus: -0.207, plus: 0.207}
+    value: 0.201
+  - errors:
+    - asymerror: {minus: -0.376, plus: 0.376}
+    value: 0.787
+  - errors:
+    - asymerror: {minus: -0.567, plus: 0.567}
+    value: 1.017
+  - errors:
+    - asymerror: {minus: -0.543, plus: 0.543}
+    value: 1.438
+  - errors:
+    - asymerror: {minus: -0.375, plus: 0.375}
+    value: 0.453
+  - errors:
+    - asymerror: {minus: -0.299, plus: 0.299}
+    value: 0.369
+  - errors:
+    - asymerror: {minus: -0.207, plus: 0.207}
+    value: 0.193
+  - errors:
+    - asymerror: {minus: -0.192, plus: 0.192}
+    value: 0.202
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+  - errors:
+    - asymerror: {minus: -0.224, plus: 0.224}
+    value: 0.227
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+  - errors:
+    - asymerror: {minus: -0.207, plus: 0.207}
+    value: 0.207
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW DPS}
+  values:
+  - errors:
+    - asymerror: {minus: -0.040, plus: 0.040}
+    value: 0.244
+  - errors:
+    - asymerror: {minus: -0.019, plus: 0.019}
+    value: 0.056
+  - errors:
+    - asymerror: {minus: -0.012, plus: 0.012}
+    value: 0.030
+  - errors:
+    - asymerror: {minus: -0.012, plus: 0.012}
+    value: 0.027
+  - errors:
+    - asymerror: {minus: -0.023, plus: 0.023}
+    value: 0.110
+  - errors:
+    - asymerror: {minus: -0.016, plus: 0.016}
+    value: 0.051
+  - errors:
+    - asymerror: {minus: -0.011, plus: 0.011}
+    value: 0.020
+  - errors:
+    - asymerror: {minus: -0.008, plus: 0.008}
+    value: 0.012
+  - errors:
+    - asymerror: {minus: -0.016, plus: 0.016}
+    value: 0.051
+  - errors:
+    - asymerror: {minus: -0.009, plus: 0.009}
+    value: 0.017
+  - errors:
+    - asymerror: {minus: -0.010, plus: 0.010}
+    value: 0.025
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+  - errors:
+    - asymerror: {minus: -0.009, plus: 0.009}
+    value: 0.013
+  - errors:
+    - asymerror: {minus: -0.007, plus: 0.007}
+    value: 0.012
+  - errors:
+    - asymerror: {minus: -0.007, plus: 0.007}
+    value: 0.011
+  - errors:
+    - asymerror: {minus: -0.000, plus: 0.000}
+    value: 0.000
+- header: {name: Yields of two dimensional dijet-dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Non-prompt}
+  values:
+  - errors:
+    - asymerror: {minus: -4.811, plus: 4.811}
+    value: 30.856
+  - errors:
+    - asymerror: {minus: -2.721, plus: 2.721}
+    value: 12.668
+  - errors:
+    - asymerror: {minus: -1.603, plus: 1.603}
+    value: 5.398
+  - errors:
+    - asymerror: {minus: -1.267, plus: 1.267}
+    value: 3.344
+  - errors:
+    - asymerror: {minus: -2.970, plus: 2.970}
+    value: 13.149
+  - errors:
+    - asymerror: {minus: -2.214, plus: 2.214}
+    value: 9.628
+  - errors:
+    - asymerror: {minus: -1.096, plus: 1.096}
+    value: 1.608
+  - errors:
+    - asymerror: {minus: -1.401, plus: 1.401}
+    value: 0.892
+  - errors:
+    - asymerror: {minus: -1.899, plus: 1.899}
+    value: 8.819
+  - errors:
+    - asymerror: {minus: -1.161, plus: 1.161}
+    value: 3.212
+  - errors:
+    - asymerror: {minus: -0.744, plus: 0.744}
+    value: 1.761
+  - errors:
+    - asymerror: {minus: -0.089, plus: 0.089}
+    value: 0.108
+  - errors:
+    - asymerror: {minus: -0.902, plus: 0.902}
+    value: 2.078
+  - errors:
+    - asymerror: {minus: -0.572, plus: 0.572}
+    value: 0.549
+  - errors:
+    - asymerror: {minus: -0.068, plus: 0.068}
+    value: 0.072
+  - errors:
+    - asymerror: {minus: -0.083, plus: 0.083}
+    value: 0.108
+independent_variables:
+- header: {name: Mjj/Mll, units: GeV/GeV}
+  values:
+  - {value: 500-800/20-100}
+  - {value: 800-1100/20-100}
+  - {value: 1100-1500/20-100}
+  - {value: 1500-inf/20-100}
+  - {value: 500-800/100-180}
+  - {value: 800-1100/100-180}
+  - {value: 1100-1500/100-180}
+  - {value: 1500-inf/100-180}
+  - {value: 500-800/180-300}
+  - {value: 800-1100/180-300}
+  - {value: 1100-1500/180-300}
+  - {value: 1500-inf/180-300}
+  - {value: 500-800/300-inf}
+  - {value: 800-1100/300-inf}
+  - {value: 1100-1500/300-inf}
+  - {value: 1500-inf/300-inf}

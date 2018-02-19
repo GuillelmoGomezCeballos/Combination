@@ -1,0 +1,39 @@
+dependent_variables:
+- header: {name: Observed limits (TeV^-4)}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value:  -7.7/ 7.7}
+  - {value: -21.6/21.8}
+  - {value:  -6.0/ 5.9}
+  - {value:  -8.7/ 9.1}
+  - {value: -11.9/11.8}
+  - {value: -13.3/12.9}
+  - {value: -0.62/0.65}
+  - {value: -0.28/0.31}
+  - {value: -0.89/1.02}
+- header: {name: Expected limits (TeV^-4)}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value:  -7.0/ 7.2}
+  - {value: -19.9/20.2}
+  - {value:  -5.6/ 5.5}
+  - {value:  -7.9/ 8.5}
+  - {value: -11.1/11.0}
+  - {value: -12.4/11.8}
+  - {value: -0.58/0.61}
+  - {value: -0.26/0.29}
+  - {value: -0.80/0.95}
+independent_variables:
+- header: {name: Value}
+  values:
+  - {value: fS0 / Lambda^4}
+  - {value: fS1 / Lambda^4}
+  - {value: fM0 / Lambda^4}
+  - {value: fM1 / Lambda^4}
+  - {value: fM6 / Lambda^4}
+  - {value: fM7 / Lambda^4}
+  - {value: fT0 / Lambda^4}
+  - {value: fT1 / Lambda^4}
+  - {value: fT2 / Lambda^4}

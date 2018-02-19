@@ -1,0 +1,189 @@
+dependent_variables:
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Data}
+  values:
+  - {value: 85}
+  - {value: 74}
+  - {value: 22}
+  - {value: 12}
+  - {value:  8}
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW EWK}
+  values:
+  - errors:
+    - asymerror: {minus: -6.669, plus: 6.669}
+    value: 26.575
+  - errors:
+    - asymerror: {minus: -7.644, plus: 7.644}
+    value: 30.666
+  - errors:
+    - asymerror: {minus: -3.155, plus: 3.155}
+    value: 12.412
+  - errors:
+    - asymerror: {minus: -1.358, plus: 1.358}
+    value: 5.274
+  - errors:
+    - asymerror: {minus: -1.162, plus: 1.162}
+    value: 4.584
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW QCD}
+  values:
+  - errors:
+    - asymerror: {minus: -0.250, plus: 0.250}
+    value: 0.943
+  - errors:
+    - asymerror: {minus: -0.524, plus: 0.524}
+    value: 1.908
+  - errors:
+    - asymerror: {minus: -0.284, plus: 0.284}
+    value: 1.017
+  - errors:
+    - asymerror: {minus: -0.191, plus: 0.191}
+    value: 0.597
+  - errors:
+    - asymerror: {minus: -0.178, plus: 0.178}
+    value: 0.586
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WZ}
+  values:
+  - errors:
+    - asymerror: {minus: -2.295, plus: 2.295}
+    value: 10.400
+  - errors:
+    - asymerror: {minus: -2.526, plus: 2.526}
+    value: 11.834
+  - errors:
+    - asymerror: {minus: -1.081, plus: 1.081}
+    value: 3.072
+  - errors:
+    - asymerror: {minus: -0.697, plus: 0.697}
+    value: 1.095
+  - errors:
+    - asymerror: {minus: -0.286, plus: 0.286}
+    value: 0.341
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: ZZ}
+  values:
+  - errors:
+    - asymerror: {minus: -0.020, plus: 0.020}
+    value: 0.071
+  - errors:
+    - asymerror: {minus: -0.016, plus: 0.016}
+    value: 0.058
+  - errors:
+    - asymerror: {minus: -0.005, plus: 0.005}
+    value: 0.019
+  - errors:
+    - asymerror: {minus: -0.003, plus: 0.003}
+    value: 0.010
+  - errors:
+    - asymerror: {minus: -0.002, plus: 0.002}
+    value: 0.007
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Triboson}
+  values:
+  - errors:
+    - asymerror: {minus: -0.467, plus: 0.467}
+    value: 1.837
+  - errors:
+    - asymerror: {minus: -0.437, plus: 0.437}
+    value: 2.453
+  - errors:
+    - asymerror: {minus: -0.244, plus: 0.244}
+    value: 0.966
+  - errors:
+    - asymerror: {minus: -0.097, plus: 0.097}
+    value: 0.335
+  - errors:
+    - asymerror: {minus: -0.091, plus: 0.091}
+    value: 0.304
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Wrong-sign}
+  values:
+  - errors:
+    - asymerror: {minus: -0.718, plus: 0.718}
+    value: 1.831
+  - errors:
+    - asymerror: {minus: -0.649, plus: 0.649}
+    value: 2.342
+  - errors:
+    - asymerror: {minus: -0.315, plus: 0.315}
+    value: 0.743
+  - errors:
+    - asymerror: {minus: -0.142, plus: 0.142}
+    value: 0.322
+  - errors:
+    - asymerror: {minus: -0.051, plus: 0.051}
+    value: 0.103
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Wgamma}
+  values:
+  - errors:
+    - asymerror: {minus: -1.128, plus: 1.128}
+    value: 3.687
+  - errors:
+    - asymerror: {minus: -1.180, plus: 1.180}
+    value: 4.149
+  - errors:
+    - asymerror: {minus: -0.267, plus: 0.267}
+    value: 0.384
+  - errors:
+    - asymerror: {minus: -0.289, plus: 0.289}
+    value: 0.233
+  - errors:
+    - asymerror: {minus: -0.166, plus: 0.166}
+    value: 0.202
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: WW DPS}
+  values:
+  - errors:
+    - asymerror: {minus: -0.055, plus: 0.055}
+    value: 0.360
+  - errors:
+    - asymerror: {minus: -0.039, plus: 0.039}
+    value: 0.224
+  - errors:
+    - asymerror: {minus: -0.018, plus: 0.018}
+    value: 0.061
+  - errors:
+    - asymerror: {minus: -0.008, plus: 0.008}
+    value: 0.017
+  - errors:
+    - asymerror: {minus: -0.009, plus: 0.009}
+    value: 0.019
+- header: {name: Yields of one dimensional dilepton mass distribution}
+  qualifiers:
+  - {name: Process, value: Non-prompt}
+  values:
+  - errors:
+    - asymerror: {minus: -9.842, plus: 9.842}
+    value: 47.819
+  - errors:
+    - asymerror: {minus: -6.195, plus: 6.195}
+    value: 25.759
+  - errors:
+    - asymerror: {minus: -2.439, plus: 2.439}
+    value: 9.631
+  - errors:
+    - asymerror: {minus: -0.796, plus: 0.796}
+    value: 0.990
+  - errors:
+    - asymerror: {minus: -0.777, plus: 0.777}
+    value: 1.387
+independent_variables:
+- header: {name: Mll, units: GeV}
+  values:
+  - {value: 20-100}
+  - {value: 100-200}
+  - {value: 200-300}
+  - {value: 300-400}
+  - {value: 400-inf}

@@ -1,0 +1,97 @@
+dependent_variables:
+- header: {name: Observed limits (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 108.82}
+  - {value:  91.46}
+  - {value:  70.81}
+  - {value:  62.72}
+  - {value:  52.38}
+  - {value:  43.86}
+  - {value:  37.29}
+  - {value:  32.65}
+  - {value:  29.43}
+- header: {name: Expected limits -2sigma (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 83.70}
+  - {value: 60.63}
+  - {value: 39.83}
+  - {value: 28.99}
+  - {value: 20.96}
+  - {value: 16.59}
+  - {value: 13.66}
+  - {value: 11.63}
+  - {value: 10.40}
+- header: {name: Expected limits -1sigma (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 113.57}
+  - {value:  82.21}
+  - {value:  54.34}
+  - {value:  39.40}
+  - {value:  28.62}
+  - {value:  22.79}
+  - {value:  18.84}
+  - {value:  16.12}
+  - {value:  14.48}
+- header: {name: Expected limits (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 161.72}
+  - {value: 117.58}
+  - {value:  78.12}
+  - {value:  56.45}
+  - {value:  41.60}
+  - {value:  33.30}
+  - {value:  27.64}
+  - {value:  23.73}
+  - {value:  21.39}
+- header: {name: Expected limits +1sigma (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 235.85}
+  - {value: 171.48}
+  - {value: 114.56}
+  - {value:  83.22}
+  - {value:  61.33}
+  - {value:  49.63}
+  - {value:  41.63}
+  - {value:  35.93}
+  - {value:  32.47}
+- header: {name: Expected limits +2sigma (fb)}
+  qualifiers:
+  - {name: Value, value: Cross section times branching ratio upper limits at the 95% CL}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 330.82}
+  - {value: 241.98}
+  - {value: 162.13}
+  - {value: 118.10}
+  - {value:  88.57}
+  - {value:  72.42}
+  - {value:  61.01}
+  - {value:  53.06}
+  - {value:  48.12}
+independent_variables:
+- header: {name: Mass (GeV)}
+  values:
+  - {value: 200 }
+  - {value: 300 }
+  - {value: 400 }
+  - {value: 500 }
+  - {value: 600 }
+  - {value: 700 }
+  - {value: 800 }
+  - {value: 900 }
+  - {value: 1000}

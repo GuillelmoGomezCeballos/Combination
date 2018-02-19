@@ -1,0 +1,97 @@
+dependent_variables:
+- header: {name: Observed limits}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.175}
+  - {value: 0.214}
+  - {value: 0.240}
+  - {value: 0.280}
+  - {value: 0.309}
+  - {value: 0.337}
+  - {value: 0.365}
+  - {value: 0.398}
+  - {value: 0.436}
+- header: {name: Expected limits -2sigma}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.153}
+  - {value: 0.174}
+  - {value: 0.180}
+  - {value: 0.190}
+  - {value: 0.195}
+  - {value: 0.207}
+  - {value: 0.221}
+  - {value: 0.237}
+  - {value: 0.259}
+- header: {name: Expected limits -1sigma}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.179}
+  - {value: 0.203}
+  - {value: 0.210}
+  - {value: 0.222}
+  - {value: 0.228}
+  - {value: 0.243}
+  - {value: 0.259}
+  - {value: 0.279}
+  - {value: 0.306}
+- header: {name: Expected limits}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.213}
+  - {value: 0.243}
+  - {value: 0.252}
+  - {value: 0.265}
+  - {value: 0.276}
+  - {value: 0.293}
+  - {value: 0.314}
+  - {value: 0.339}
+  - {value: 0.372}
+- header: {name: Expected limits +1sigma}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.258}
+  - {value: 0.293}
+  - {value: 0.306}
+  - {value: 0.322}
+  - {value: 0.335}
+  - {value: 0.358}
+  - {value: 0.386}
+  - {value: 0.417}
+  - {value: 0.458}
+- header: {name: Expected limits +2sigma}
+  qualifiers:
+  - {name: Value, value: 95% CL upper limits on $s_H$}
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 0.305}
+  - {value: 0.349}
+  - {value: 0.364}
+  - {value: 0.384}
+  - {value: 0.402}
+  - {value: 0.433}
+  - {value: 0.467}
+  - {value: 0.507}
+  - {value: 0.558}
+independent_variables:
+- header: {name: Mass (GeV)}
+  values:
+  - {value: 200 }
+  - {value: 300 }
+  - {value: 400 }
+  - {value: 500 }
+  - {value: 600 }
+  - {value: 700 }
+  - {value: 800 }
+  - {value: 900 }
+  - {value: 1000}

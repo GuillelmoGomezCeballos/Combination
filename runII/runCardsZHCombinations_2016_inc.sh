@@ -1,10 +1,10 @@
 #! /bin/bash
 
-#grep -e combine -e Observed -e "cted 50" log|awk '{if(NR%3==1)printf("%80s ",$9);if(NR%3!=1)printf(" %6.2f ",$5);if(NR%3==0)printf("\n");}'
-#grep -e combine -e Observed -e "Expected " log|awk '{if(NR%7==1)printf("%120s ",$11);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}'
-#grep -e combine -e Observed -e "Expected " log|awk '{if(NR%7==1)printf("%120s ",$11);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}' |grep mh|awk '{a=0.8839-0.1227;printf("%6.2f %6.2f %6.2f %6.2f %6.2f %6.2f %6.2f\n",a*$2,a*$5,a*$5,a*$3,a*$4,a*$6,a*$7)}'
+#grep -e combine -e Observed -e "cted 50" log|grep -v WARNING|awk '{if(NR%3==1)printf("%80s ",$9);if(NR%3!=1)printf(" %6.2f ",$5);if(NR%3==0)printf("\n");}'
+#grep -e combine -e Observed -e "Expected " log|grep -v WARNING|awk '{if(NR%7==1)printf("%120s ",$9);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}'
+#grep -e combine -e Observed -e "Expected " log|grep -v WARNING|awk '{if(NR%7==1)printf("%120s ",$9);if(NR%7!=1)printf(" %f ",$5);if(NR%7==0)printf("\n");}' |grep mh|awk '{a=0.8839-0.1227;printf("%6.2f %6.2f %6.2f %6.2f %6.2f %6.2f %6.2f\n",a*$2,a*$5,a*$5,a*$3,a*$4,a*$6,a*$7)}'
 
-source ~/EVAL_SH66 7_4_7;
+source ~/EVAL_SH66 8_1_0;
 
 export option=$1;
 

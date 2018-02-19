@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # set env
-source ~/EVAL_SH66 7_4_7;
+source ~/EVAL_SH66 8_1_0;
 
 tag=$1;
 mass=$2;
@@ -15,13 +15,13 @@ mkdir -p /tmp/$USER/${seed}/
 cd /tmp/$USER/${seed}/
 
 if [ $3 = "exp" ]; then
-  echo "combine -M MaxLikelihoodFit ${workspace} -m ${mass} --expectSignal=1 -t -1 --saveNorm --saveWithUncertainties --rMin=-2 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWWExp${tag} | tee mlfExp${tag}.txt"
-        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --expectSignal=1 -t -1 --saveNorm --saveWithUncertainties --rMin=-2 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWWExp${tag} | tee mlfExp${tag}.txt;
+  echo "combine -M MaxLikelihoodFit ${workspace} -m ${mass} --expectSignal=1 -t -1 --saveNorm --saveWithUncertainties --rMin=-1 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWWExp${tag} | tee mlfExp${tag}.txt"
+        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --expectSignal=1 -t -1 --saveNorm --saveWithUncertainties --rMin=-1 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWWExp${tag} | tee mlfExp${tag}.txt;
   mv higgsCombinehWWExp${tag}.MaxLikelihoodFit.mH${mass}.root mlfExp${tag}.txt $baseDir/$mass/;
   mv mlfithWWExp${tag}.root $baseDir/$mass/;
 elif [ $3 = "obs" ]; then
-  echo "combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-2 --rMax=4 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt"
-        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-2 --rMax=4 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt;
+  echo "combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-1 --rMax=3 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt"
+        combine -M MaxLikelihoodFit ${workspace} -m ${mass} --rMin=-1 --rMax=3 --saveNorm --saveWithUncertainties --robustFit=1 --X-rtd FITTER_DYN_STEP -n hWW${tag} | tee mlf${tag}.txt;
   mv higgsCombinehWW${tag}.MaxLikelihoodFit.mH${mass}.root mlf${tag}.txt $baseDir/$mass/;
   mv mlfithWW${tag}.root $baseDir/$mass/;
 else

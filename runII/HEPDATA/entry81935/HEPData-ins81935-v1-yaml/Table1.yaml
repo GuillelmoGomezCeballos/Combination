@@ -1,0 +1,18 @@
+dependent_variables:
+- header: {name: LO Prediction}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 4.25 +/- 0.27 fb}
+  - {value: 1}
+- header: {name: Observation}
+  qualifiers:
+  - {name: SQRT(S), units: GeV, value: '13000.0'}
+  values:
+  - {value: 3.83 +/- 0.66 (stat.) +/- 0.35 (syst.) fb}
+  - {value: 0.90 +/- 0.22}
+independent_variables:
+- header: {name: Value}
+  values:
+  - {value: Fiducial cross section}
+  - {value: Signal strength}
