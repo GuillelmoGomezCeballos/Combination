@@ -1,0 +1,17 @@
+dependent_variables:
+- header: {name: Efficiency (%)}
+  qualifiers:
+  values:
+  - {value: 38}
+  - {value: 51}
+  - {value: 62}
+  - {value: 66}
+  - {value: 66}
+independent_variables:
+- header: {name: Mll, units: GeV}
+  values:
+  - {value: 20-100}
+  - {value: 100-200}
+  - {value: 200-300}
+  - {value: 300-400}
+  - {value: 400-inf}

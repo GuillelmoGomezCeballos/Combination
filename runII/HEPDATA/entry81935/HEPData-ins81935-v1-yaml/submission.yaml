@@ -96,3 +96,35 @@ keywords:
 location: Data from Figure 3 right
 name: Table 6
 table_doi: 1709.05822/hepdata.81935.v1
+---
+data_file: Table7.yaml
+description: |
+  Main systematic uncertainties in the analysis.
+keywords:
+- name: reactions
+  values: [P P --> W+W+/W-W-]
+- name: observables
+  values: [Standard Model analysis]
+- name: phrases
+  values: [VBS, WW, Georgi-Machacek Model, HIGGS++ --> W+ W+, Anomalous couplings]
+- name: cmenergies
+  values: [13000.0]
+location: Additional information
+name: Table 7
+table_doi: 1709.05822/hepdata.81935.v1
+---
+data_file: Table8.yaml
+description: |
+  Signal efficiency from the generator level fiducial definition to the reconstruction level selection for the dilepton mass variable.
+keywords:
+- name: reactions
+  values: [P P --> W+W+/W-W-]
+- name: observables
+  values: [Anomalous coupling analysis]
+- name: phrases
+  values: [VBS, WW, Georgi-Machacek Model, HIGGS++ --> W+ W+, Anomalous couplings]
+- name: cmenergies
+  values: [13000.0]
+location: Additional information
+name: Table 8
+table_doi: 1709.05822/hepdata.81935.v1

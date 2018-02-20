@@ -1,0 +1,19 @@
+dependent_variables:
+- header: {name: Value (%)}
+  qualifiers:
+  values:
+  - {value: 2.5}
+  - {value: 2.0}
+  - {value: 2.0}
+  - {value: 3.0}
+  - {value: 4.0}
+  - {value: 10.0}
+independent_variables:
+- header: {name: Source}
+  values:
+  - {value: Integrated luminosity}
+  - {value: Muon selection}
+  - {value: Electron selection}
+  - {value: Jet energy scale}
+  - {value: PDFs}
+  - {value: QCD scales}

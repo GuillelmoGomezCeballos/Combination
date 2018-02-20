@@ -12,6 +12,8 @@
 // nsel == 4 --> aQGC limits
 // nsel == 5 --> H++ cross section limits
 // nsel == 6 --> H++ sH limits
+// nsel == 7 --> systematics
+// nsel == 8 --> gen to reco efficiency
 
 void makeHEPData(int nsel = 1){
 
@@ -26,6 +28,8 @@ else if(nsel == 3) {_file0 = TFile::Open("histo_aqgc_sig_mll.root");binsToRemove
 else if(nsel == 4) {}
 else if(nsel == 5) {}
 else if(nsel == 6) {}
+else if(nsel == 7) {}
+else if(nsel == 8) {}
 else return;
 
 if     (nsel == 1){
@@ -440,5 +444,49 @@ newcardShape << Form("  - {value: 800 }\n");
 newcardShape << Form("  - {value: 900 }\n");
 newcardShape << Form("  - {value: 1000}\n");
 } // end nsel if 6
+else if(nsel == 7){
+ofstream newcardShape;
+newcardShape.open("Table7.yaml");
+newcardShape << Form("dependent_variables:\n");
+newcardShape << Form("- header: {name: Value (\%%)}\n");
+newcardShape << Form("  qualifiers:\n");
+newcardShape << Form("  values:\n");
+newcardShape << Form("  - {value: 2.5}\n");
+newcardShape << Form("  - {value: 2.0}\n");
+newcardShape << Form("  - {value: 2.0}\n");
+newcardShape << Form("  - {value: 3.0}\n");
+newcardShape << Form("  - {value: 4.0}\n");
+newcardShape << Form("  - {value: 10.0}\n");
+newcardShape << Form("independent_variables:\n");
+newcardShape << Form("- header: {name: Source}\n");
+newcardShape << Form("  values:\n");
+newcardShape << Form("  - {value: Integrated luminosity}\n");
+newcardShape << Form("  - {value: Muon selection}\n");
+newcardShape << Form("  - {value: Electron selection}\n");
+newcardShape << Form("  - {value: Jet energy scale}\n");
+newcardShape << Form("  - {value: PDFs}\n");
+newcardShape << Form("  - {value: QCD scales}\n");
+} // end nsel if 7
+else if(nsel == 8){
+ofstream newcardShape;
+newcardShape.open("Table8.yaml");
+newcardShape << Form("dependent_variables:\n");
+newcardShape << Form("- header: {name: Efficiency (\%%)}\n");
+newcardShape << Form("  qualifiers:\n");
+newcardShape << Form("  values:\n");
+newcardShape << Form("  - {value: 38}\n");
+newcardShape << Form("  - {value: 51}\n");
+newcardShape << Form("  - {value: 62}\n");
+newcardShape << Form("  - {value: 66}\n");
+newcardShape << Form("  - {value: 66}\n");
+newcardShape << Form("independent_variables:\n");
+newcardShape << Form("- header: {name: Mll, units: GeV}\n");
+newcardShape << Form("  values:\n");
+newcardShape << Form("  - {value: 20-100}\n");
+newcardShape << Form("  - {value: 100-200}\n");
+newcardShape << Form("  - {value: 200-300}\n");
+newcardShape << Form("  - {value: 300-400}\n");
+newcardShape << Form("  - {value: 400-inf}\n");
+} // end nsel if 8
 
 }
