@@ -1,6 +1,5 @@
 dependent_variables:
 - header: {name: Efficiency (%)}
-  qualifiers:
   values:
   - {value: 38}
   - {value: 51}

@@ -20,8 +20,8 @@ if [ $3 = "exp" ]; then
     mv expected${tag}.txt $baseDir/$mass/;
     mv higgsCombineExpected${tag}.ProfileLikelihood.mH${mass}.${seed}.root $baseDir/$mass/higgsCombineExpected${tag}.ProfileLikelihood.mH${mass}.root;
 elif [ $3 = "obs" ]; then
-    echo "combine $workspace -M ProfileLikelihood --significance -m ${mass} -n Observed${tag} --minimizerAlgo Minuit -s ${seed} | tee observed${tag}.txt";
-          combine $workspace -M ProfileLikelihood --significance -m ${mass} -n Observed${tag} --minimizerAlgo Minuit -s ${seed} | tee observed${tag}.txt;
+    echo "combine $workspace -M ProfileLikelihood --significance -m ${mass} -n Observed${tag} -s ${seed} | tee observed${tag}.txt";
+          combine $workspace -M ProfileLikelihood --significance -m ${mass} -n Observed${tag} -s ${seed} | tee observed${tag}.txt;
     mv observed${tag}.txt $baseDir/$mass/;
     mv higgsCombineObserved${tag}.ProfileLikelihood.mH${mass}.${seed}.root $baseDir/$mass/higgsCombineObserved${tag}.ProfileLikelihood.mH${mass}.root;
 elif [ $3 = "toy" ]; then

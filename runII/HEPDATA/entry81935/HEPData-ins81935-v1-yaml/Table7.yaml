@@ -1,6 +1,5 @@
 dependent_variables:
 - header: {name: Value (%)}
-  qualifiers:
   values:
   - {value: 2.5}
   - {value: 2.0}
