@@ -45,10 +45,10 @@ ssww_comb.text -o workspace_ssww_comb_wzonly.root;
 
 elif [ $1 = "run" ]; then
 
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance obs
 combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameters r_s0=1,r_s1=1 -t -1
 combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1
 combine -M MultiDimFit workspace_ssww_comb_wzonly.root -n ssww_comb_wzonly_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0 --setParameters r_s0=1 -t -1

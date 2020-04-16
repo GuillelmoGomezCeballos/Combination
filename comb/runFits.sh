@@ -13,9 +13,9 @@ if [ $1 = "darkg" ]; then
 echo "*****darkg*******"
 #grep -e sample -e r_s0 log_runFits_darkg|awk '{xs=0.1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%7==0)printf("\n");}'
 for sampleName in 125 200 300; do
-  nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . darkg_comb_${sampleName} mlf obs >& log_mlf_darkg_comb_${sampleName}_obs &
+  nohup ~/ana_area/Combination/comb/runFit.sh . darkg_comb_${sampleName} mlf obs >& log_mlf_darkg_comb_${sampleName}_obs &
   echo "sample: "${sampleName};
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . darkg_comb_${sampleName} limit obs
+  ~/ana_area/Combination/comb/runFit.sh . darkg_comb_${sampleName} limit obs
 done
 
 elif [ $1 = "vbfg" ]; then
@@ -25,34 +25,34 @@ for sampleName in 115 125 150 200 300 500 800 1000; do
 #for sampleName in 115; do
 
   if [ ${sampleName} == '115' ]; then
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
   fi
   if [ ${sampleName} == '125' ]; then
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2016 mlf obs >& log_mlf_vbfg_${sampleName}_2016_obs &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2017 mlf obs >& log_mlf_vbfg_${sampleName}_2017_obs &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2018 mlf obs >& log_mlf_vbfg_${sampleName}_2018_obs &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} impacts exp >& log_impacts_vbfg_${sampleName}_exp &
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} impacts expnosig >& log_impacts_vbfg_${sampleName}_expnosig &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2016 mlf obs >& log_mlf_vbfg_${sampleName}_2016_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2017 mlf obs >& log_mlf_vbfg_${sampleName}_2017_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2018 mlf obs >& log_mlf_vbfg_${sampleName}_2018_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts exp >& log_impacts_vbfg_${sampleName}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts expnosig >& log_impacts_vbfg_${sampleName}_expnosig &
    fi
 
   echo "sample: "${sampleName};
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName} limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} limit obs
   echo "sample: "${sampleName}-2016;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2016 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2016 limit obs
   echo "sample: "${sampleName}-2017;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2017 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2017 limit obs
   echo "sample: "${sampleName}-2017-trigger0;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2017_trigger0 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2017_trigger0 limit obs
   echo "sample: "${sampleName}-2017-trigger1;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2017_trigger1 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2017_trigger1 limit obs
   echo "sample: "${sampleName}-2018;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2018 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2018 limit obs
   echo "sample: "${sampleName}-2018-trigger0;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2018_trigger0 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2018_trigger0 limit obs
   echo "sample: "${sampleName}-2018-trigger1;
-  ~/releases/CMSSW_10_2_13/src/runFit.sh . vbfg${sampleName}_2018_trigger1 limit obs
+  ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2018_trigger1 limit obs
 
 done
 
@@ -61,14 +61,14 @@ echo "*****monoz*******"
 #grep -e sample -e r_s0 log_runFits_monoz|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%7==0)printf("\n");}'
 for sampleName in `cat list_of_samples.txt`; do
    echo "sample: "${sampleName};
-   #~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb limit exp
-   ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb limit obs
+   #~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb limit exp
+   ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb limit obs
 done
 
 #for sampleName in `cat list_of_samples.txt`; do
 #   echo "sample: "${sampleName};
-#   #~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_2016 limit exp
-#   ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_2016 limit obs
+#   #~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_2016 limit exp
+#   ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_2016 limit obs
 #done
 
 elif [ $1 = "aqgc" ]; then
@@ -76,145 +76,145 @@ echo "*****aqgc*******"
 #grep -e sample -e r_s0 log_runFits_aqgc|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%7==0)printf("\n");}'|awk '{printf("%10s %11.6f 1 %11.6f %11.6f %11.6f %11.6f %11.6f\n",$1,$2,$5,$3,$4,$6,$7)}'
 for sampleName in `cat list_of_aqgc_samples.txt`; do
    echo "sample: "${sampleName};
-   #~/releases/CMSSW_10_2_13/src/runFit.sh . aqgc_${sampleName}_comb limit exp
-   ~/releases/CMSSW_10_2_13/src/runFit.sh . aqgc_${sampleName}_comb limit obs
+   #~/ana_area/Combination/comb/runFit.sh . aqgc_${sampleName}_comb limit exp
+   ~/ana_area/Combination/comb/runFit.sh . aqgc_${sampleName}_comb limit obs
 done
 
 elif [ $1 = "zhstudy" ]; then
 export sampleName="ADDMonoZ_MD_3_d_4"
-#~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb limit obs
+#~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb limit exp
+~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb limit obs
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb impacts obs >& log_impacts_zh${sampleName}_obs_comb &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb impacts exp >& log_impacts_zh${sampleName}_exp_comb &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb impacts expnosig >& log_impacts_zh${sampleName}_expnosig_comb &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb impacts obs >& log_impacts_zh${sampleName}_obs_comb &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb impacts exp >& log_impacts_zh${sampleName}_exp_comb &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb impacts expnosig >& log_impacts_zh${sampleName}_expnosig_comb &
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh${sampleName}_comb mlf obs >& log_mlf_zh${sampleName}_comb_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb mlf obs >& log_mlf_zh${sampleName}_comb_obs &
 
 elif [ $1 = "zh" ]; then
 #grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'
 #grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'|awk '{printf("%5.2f %5.2f %5.2f %5.2f\n",$1,$4-$3,$4,$5-$4)}'
 echo "*****ZH*******"
-#~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2016 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2016 limit obs
-#~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2017 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2017 limit obs
-#~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2018 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2018 limit obs
-#~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb limit obs
+#~/ana_area/Combination/comb/runFit.sh . zh_2016 limit exp
+~/ana_area/Combination/comb/runFit.sh . zh_2016 limit obs
+#~/ana_area/Combination/comb/runFit.sh . zh_2017 limit exp
+~/ana_area/Combination/comb/runFit.sh . zh_2017 limit obs
+#~/ana_area/Combination/comb/runFit.sh . zh_2018 limit exp
+~/ana_area/Combination/comb/runFit.sh . zh_2018 limit obs
+#~/ana_area/Combination/comb/runFit.sh . zh_comb limit exp
+~/ana_area/Combination/comb/runFit.sh . zh_comb limit obs
 
 echo "*****IMPACTS*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2016      impacts obs >& log_impacts_zh_2016 &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2017      impacts obs >& log_impacts_zh_2017 &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2018      impacts obs >& log_impacts_zh_2018 &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2016      impacts obs >& log_impacts_zh_2016 &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2017      impacts obs >& log_impacts_zh_2017 &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2018      impacts obs >& log_impacts_zh_2018 &
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb      impacts obs >& log_impacts_zh &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb      impacts exp >& log_impacts_zh_exp &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb      impacts expnosig >& log_impacts_zh_expnosig &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts obs >& log_impacts_zh &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts exp >& log_impacts_zh_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts expnosig >& log_impacts_zh_expnosig &
 
 echo "*****MLF*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2016      mlf obs >& log_mlf_zh_2016_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2017      mlf obs >& log_mlf_zh_2017_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_2018      mlf obs >& log_mlf_zh_2018_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2016      mlf obs >& log_mlf_zh_2016_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2017      mlf obs >& log_mlf_zh_2017_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_2018      mlf obs >& log_mlf_zh_2018_obs &
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb      mlf obs >& log_mlf_zh_comb_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      mlf obs >& log_mlf_zh_comb_obs &
 
 echo "*****GOF*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb       gof obs >& log_gof_zh_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zh_comb       gof exp >& log_gof_zh_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof obs >& log_gof_zh_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof exp >& log_gof_zh_exp &
 
 elif [ $1 = "zhg" ]; then
 echo "*****ZHG125*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_125 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_125 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_125 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_125 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_125 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_125 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_125 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_125 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_125 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_125 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_125 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_125 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 limit obs
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125 limitToys obs >& limitToys_zhg_comb_125 &
+nohup ~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 limitToys obs >& limitToys_zhg_comb_125 &
 
 echo "*****ZHG200*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_200 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_200 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_200 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_200 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_200 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_200 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_200 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_200 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_200 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_200 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_200 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_200 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_200 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_200 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_200 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_200 limit obs
 
 echo "*****ZHG300*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_300 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2016_300 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_300 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2017_300 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_300 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_2018_300 limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_300 limit exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_300 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_300 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2016_300 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_300 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2017_300 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_300 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_2018_300 limit obs
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_300 limit exp
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_300 limit obs
 
 echo "*****IMPACTS*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125 impacts obs >& log_impacts_zhg_125 &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125 impacts exp >& log_impacts_zhg_125_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 impacts obs >& log_impacts_zhg_125 &
+nohup ~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 impacts exp >& log_impacts_zhg_125_exp &
 
 echo "*****MLF*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . zhg_comb_125  mlf obs
+~/ana_area/Combination/comb/runFit.sh . zhg_comb_125  mlf obs
 
 elif [ $1 = "ssww" ]; then
 echo "*****SSWW*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_fiducial6_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_fiducial6_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_fiducial6_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_fiducial6_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_fiducial6_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_fiducial6_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial6_ww significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial6_ww significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_fiducial6_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_fiducial6_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_fiducial6_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_fiducial6_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_fiducial6_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_fiducial6_wz significance obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial6_wz significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial6_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_wz significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_wz significance obs
 
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial3all impacts exp >& log_impacts_ssww_exp &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial3all impacts obs >& log_impacts_ssww_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial3all_2poi impacts exp >& log_impacts_ssww_2poi_exp &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial3all_2poi impacts obs >& log_impacts_ssww_2poi_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial8all impacts exp >& log_impacts_ssww_fiducial8_exp &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial8all impacts obs >& log_impacts_ssww_fiducial8_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all impacts exp >& log_impacts_ssww_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all impacts obs >& log_impacts_ssww_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all_2poi impacts exp >& log_impacts_ssww_2poi_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all_2poi impacts obs >& log_impacts_ssww_2poi_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial8all impacts exp >& log_impacts_ssww_fiducial8_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial8all impacts obs >& log_impacts_ssww_fiducial8_obs &
 
 echo "*****MLF*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_wwwz mlf obs >& log_mlf_2016_wwwz_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_wwwz mlf obs >& log_mlf_2017_wwwz_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_wwwz mlf obs >& log_mlf_2018_wwwz_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_wwwz mlf obs >& log_mlf_comb_wwwz_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2016_wwwz mlf obs >& log_mlf_2016_wwwz_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2017_wwwz mlf obs >& log_mlf_2017_wwwz_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2018_wwwz mlf obs >& log_mlf_2018_wwwz_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_wwwz mlf obs >& log_mlf_comb_wwwz_obs &
 
 echo "*****GOF*******"
-#nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww_wwwz gof exp >& log_gof_ssww_exp &
-#nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_ww_wwwz gof obs >& log_gof_ssww_obs &
+#nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww_wwwz gof exp >& log_gof_ssww_exp &
+#nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww_wwwz gof obs >& log_gof_ssww_obs &
 
 echo "****DIFFERENTIAL*****"
 combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
@@ -352,16 +352,16 @@ combine -M MultiDimFit workspace_ssww_comb_fiducial8all.root -n ssww_comb_fiduci
 combine -M MultiDimFit workspace_ssww_comb_fiducial8all.root -n ssww_comb_fiducial8all_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2
 
 elif [ $1 = "long" ]; then
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5 impacts exp >& log_impacts_ssww_fiducial5_exp &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5 impacts obs >& log_impacts_ssww_fiducial5_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2016_fiducial5 mlf obs >& log_mlf_2016_fiducial5_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2017_fiducial5 mlf obs >& log_mlf_2017_fiducial5_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2018_fiducial5 mlf obs >& log_mlf_2018_fiducial5_obs &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5 mlf obs >& log_mlf_2019_fiducial5_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5 impacts exp >& log_impacts_ssww_fiducial5_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5 impacts obs >& log_impacts_ssww_fiducial5_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial5 mlf obs >& log_mlf_2016_fiducial5_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial5 mlf obs >& log_mlf_2017_fiducial5_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial5 mlf obs >& log_mlf_2018_fiducial5_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5 mlf obs >& log_mlf_2019_fiducial5_obs &
 
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5_rs0only limit obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5_rs0only significance exp
-~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_2019_fiducial5_rs0only significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5_rs0only limit obs
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5_rs0only significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial5_rs0only significance obs
 
 combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_rs0only_exp \
 --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0 --rMin -3 \
@@ -393,10 +393,10 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5
 
   if [ $# == 2 ] && [ $2 == 'comb' ]; then
 
-    ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial5_rs0only limit obs
-    ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial5_rs0only significance exp
-    ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial5_rs0only significance obs
-    nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ssww_comb_fiducial5 mlf obs >& log_mlf_ssww_comb_fiducial5_obs &
+    ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_rs0only limit obs
+    ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_rs0only significance exp
+    ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_rs0only significance obs
+    nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5 mlf obs >& log_mlf_ssww_comb_fiducial5_obs &
     combine -M MultiDimFit workspace_ssww_comb_fiducial5.root -n ssww_comb_fiducial5_exp \
     --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --rMin -3 \
     --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
@@ -408,13 +408,13 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5
 elif [ $1 = "ww" ]; then
 echo "*****WW*******"
 echo "*****IMPACTS*******"
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2016   impacts obs >& log_impacts_ww_2016 &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2017   impacts obs >& log_impacts_ww_2017 &
-nohup ~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2018   impacts obs >& log_impacts_ww_2018 &
+nohup ~/ana_area/Combination/comb/runFit.sh . ww_2016   impacts obs >& log_impacts_ww_2016 &
+nohup ~/ana_area/Combination/comb/runFit.sh . ww_2017   impacts obs >& log_impacts_ww_2017 &
+nohup ~/ana_area/Combination/comb/runFit.sh . ww_2018   impacts obs >& log_impacts_ww_2018 &
 
 echo "*****MLF*******"
-~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2016   mlf obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2017   mlf obs
-~/releases/CMSSW_10_2_13/src/runFit.sh . ww_2018   mlf obs
+~/ana_area/Combination/comb/runFit.sh . ww_2016   mlf obs
+~/ana_area/Combination/comb/runFit.sh . ww_2017   mlf obs
+~/ana_area/Combination/comb/runFit.sh . ww_2018   mlf obs
 
 fi

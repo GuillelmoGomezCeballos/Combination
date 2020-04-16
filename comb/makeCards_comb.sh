@@ -68,4 +68,4 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
 --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' \
 zh_comb.text -o workspace_zh_comb.root;
 
-echo "run fits using ~/releases/CMSSW_10_2_13/src/runFit.sh"
+echo "run fits using ~/ana_area/Combination/comb/runFit.sh"

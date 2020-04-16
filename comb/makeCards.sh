@@ -691,4 +691,4 @@ ww_2018.text -o workspace_ww_2018.root;
 
 fi
 
-echo "run fits using ~/releases/CMSSW_10_2_13/src/runFit.sh"
+echo "run fits using ~/ana_area/Combination/comb/runFit.sh"
