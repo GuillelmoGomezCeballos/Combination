@@ -40,15 +40,15 @@ if [ $3 = "mu" ]; then
 
 elif [ $3 = "impacts" ]; then
   # run on t3btch051 or t3btch053
-  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-3 --rMax=4 --doInitialFit $PARAM;
-  #combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-3 --rMax=4 --doFits --parallel 15 $PARAM;
-  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-3 --rMax=4 --doFits $PARAM;
+  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doInitialFit $PARAM;
+  #combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doFits --parallel 15 $PARAM;
+  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doFits $PARAM;
   combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} -o impacts$2${ADDTEXT}.json $PARAM;
   plotImpacts.py -i impacts$2${ADDTEXT}.json -o impacts$2${ADDTEXT};
 
 elif [ $3 = "mlf" ]; then
- #combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT} --plots --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-3 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
-  combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT}         --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-3 --rMax=4 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
+ #combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT} --plots --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-2 --rMax=3 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
+  combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT}         --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-1 --rMax=3 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
 
 elif [ $3 = "significance" ]; then
   combine workspace_$2.root -M Significance --significance -n $2${ADDTEXT} $PARAM

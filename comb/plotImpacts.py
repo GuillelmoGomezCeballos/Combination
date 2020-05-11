@@ -118,6 +118,9 @@ if args.color_groups is not None:
         color_group_hists[name] = ROOT.TH1F()
         plot.Set(color_group_hists[name], FillColor=col, Title=name)
 
+totalSyst  = 0
+totalSystU = 0
+totalSystD = 0
 for page in xrange(n):
     canv = ROOT.TCanvas(args.output, args.output)
     n_params = len(data['params'][show * page:show * (page + 1)])
@@ -212,6 +215,9 @@ for page in xrange(n):
         g_impacts_hi.SetPointError(i, 0, imp[2] - imp[1], 0.5, 0.5)
         g_impacts_lo.SetPointError(i, imp[1] - imp[0], 0, 0.5, 0.5)
 	print abs(imp[2]-imp[0])/2,pdata[p]['name']
+	totalSyst  = totalSyst  + (imp[2]-imp[0])/2 * (imp[2]-imp[0])/2
+	totalSystU = totalSystU + (imp[2]-imp[1]) * (imp[2]-imp[1])
+	totalSystD = totalSystD + (imp[1]-imp[0]) * (imp[1]-imp[0])
         max_impact = max(
             max_impact, abs(imp[1] - imp[0]), abs(imp[2] - imp[1]))
         col = colors.get(tp, 2)
@@ -325,6 +331,10 @@ for page in xrange(n):
 
     plot.DrawCMSLogo(pads[0], 'CMS', args.cms_label, 0, 0.25, 0.00, 0.00)
     s_nom, s_hi, s_lo = GetRounded(POI_fit[1], POI_fit[2] - POI_fit[1], POI_fit[1] - POI_fit[0])
+    staUncSqrt = (POI_fit[2] - POI_fit[0])*(POI_fit[2] - POI_fit[0])/4-totalSyst
+    if(staUncSqrt < 0):
+        staUncSqrt = 0
+    print 'TOTAL: ',POI_fit[1]," ",(POI_fit[2] - POI_fit[0])/2," ",pow(staUncSqrt,0.5),pow(totalSyst,0.5),pow((totalSystU+totalSystD)/2,0.5)
     if not args.blind:
         plot.DrawTitle(pads[1], '#hat{%s} = %s^{#plus%s}_{#minus%s}%s' % (
             Translate(POI, translate), s_nom, s_hi, s_lo,
