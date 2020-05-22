@@ -25,6 +25,7 @@ root -l -q -b MitAnalysisRunII/panda/macros/9x/makeZHDataCards.C+'("zh_comb_0j_i
 root -l -q -b MitAnalysisRunII/panda/macros/9x/makeZHDataCards.C+'("zh_comb_1j_input.root",1)';
 root -l -q -b MitAnalysisRunII/panda/macros/9x/makeZHDataCards.C+'("wz_comb_input.root",-1)';
 root -l -q -b MitAnalysisRunII/panda/macros/9x/makeZHDataCards.C+'("zz_comb_input.root",-1)';
+grep -v "WZ " datacard_zz_comb.txt > lll; mv lll datacard_zz_comb.txt;
 
 mv ssww_comb_*input.root zhg_comb_*_input.root ??_comb_*input.root comb/;
 mv datacard_*_comb*.txt comb/;

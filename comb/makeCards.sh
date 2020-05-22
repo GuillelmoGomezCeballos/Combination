@@ -92,15 +92,11 @@ elif [ $1 = "monoz" ]; then
 for sampleName in `cat list_of_samples.txt`; do
    echo "sample: "${sampleName};
 
-   ls datacard_zh${sampleName}_201?_?j.txt datacard_wz_201?.txt datacard_zz_201?.txt;
+   ls datacard_zh${sampleName}_201?_[0,1]j.txt datacard_wz_201?.txt datacard_zz_201?.txt;
    combineCards.py -S datacard_zh${sampleName}_201?_?j.txt datacard_wz_201?.txt datacard_zz_201?.txt > zh${sampleName}_comb.text;
    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
    --PO 'map=.*/BSM:r_s0[1,0,10]' zh${sampleName}_comb.text -o workspace_zh${sampleName}_comb.root;
 
-   ls datacard_zh${sampleName}_2016_?j.txt datacard_wz_2016.txt datacard_zz_2016.txt;
-   combineCards.py -S datacard_zh${sampleName}_2016_?j.txt datacard_wz_2016.txt datacard_zz_2016.txt > zh${sampleName}_2016.text;
-   text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
-   --PO 'map=.*/BSM:r_s0[1,0,10]' zh${sampleName}_2016.text -o workspace_zh${sampleName}_2016.root;
 done
 
 elif [ $1 = "zh" ]; then
