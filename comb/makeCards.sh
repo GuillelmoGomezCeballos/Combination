@@ -572,20 +572,23 @@ rm -f datacard_add.txt;
 elif [ $1 = "long" ]; then
 combineCards.py -S  datacard_ssww_2016_fiducial5.txt > ssww_2016_fiducial5.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
---PO 'map=.*/Signal1:r_s1[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2016_fiducial5.text -o workspace_ssww_2016_fiducial5.root;
 
 combineCards.py -S  datacard_ssww_2017_fiducial5.txt > ssww_2017_fiducial5.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
---PO 'map=.*/Signal1:r_s1[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2017_fiducial5.text -o workspace_ssww_2017_fiducial5.root;
 
 combineCards.py -S  datacard_ssww_2018_fiducial5.txt > ssww_2018_fiducial5.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
---PO 'map=.*/Signal1:r_s1[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2018_fiducial5.text -o workspace_ssww_2018_fiducial5.root;
 
 combineCards.py -S \
@@ -595,30 +598,36 @@ SSWW_2018=datacard_ssww_2018_fiducial5.txt \
 > ssww_2019_fiducial5.text;
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
---PO 'map=.*/Signal1:r_s1[1,0,10]' \
-ssww_2019_fiducial5.text -o workspace_ssww_2019_fiducial5.root;
-
-root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(0,5)'
-cat ssww_2019_fiducial5.text datacard_add.txt > ssww_2019_fiducial50.text;
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
 --PO 'map=.*/Signal1:r_s0[1,0,10]' \
-ssww_2019_fiducial50.text -o workspace_ssww_2019_fiducial50.root;
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s1[1,0,10]' \
+ssww_2019_fiducial5.text -o workspace_ssww_2019_fiducial5.root;
 
 root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(1,5)'
 cat ssww_2019_fiducial5.text datacard_add.txt > ssww_2019_fiducial51.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
 --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s0[1,0,10]' \
+--PO 'map=.*/Signal3:r_s0[1,0,10]' \
 ssww_2019_fiducial51.text -o workspace_ssww_2019_fiducial51.root;
 
-echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal1 1 [0.1,3]" >> ssww_2019_fiducial5.text
-echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal1 1 [0.1,3]" >> ssww_2019_fiducial5.text
-echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal1 1 [0.1,3]" >> ssww_2019_fiducial5.text
+root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(2,5)'
+cat ssww_2019_fiducial5.text datacard_add.txt > ssww_2019_fiducial52.text;
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s0[1,0,10]' \
+--PO 'map=.*/Signal3:r_s0[1,0,10]' \
+ssww_2019_fiducial52.text -o workspace_ssww_2019_fiducial52.root;
+
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal2 1 [0.1,3]" >> ssww_2019_fiducial5.text
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal2 1 [0.1,3]" >> ssww_2019_fiducial5.text
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal2 1 [0.1,3]" >> ssww_2019_fiducial5.text
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal3 1 [0.1,3]" >> ssww_2019_fiducial5.text
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal3 1 [0.1,3]" >> ssww_2019_fiducial5.text
+echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal3 1 [0.1,3]" >> ssww_2019_fiducial5.text
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/BSM:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
 ssww_2019_fiducial5.text -o workspace_ssww_2019_fiducial5_rs0only.root;
 
 combineCards.py -S \
@@ -628,30 +637,34 @@ SSWW_2018=datacard_ssww_2018_fiducial9.txt \
 > ssww_2019_fiducial9.text;
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
 --PO 'map=.*/Signal2:r_s0[1,0,10]' \
 --PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9.root;
 
-root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(0,9)'
-cat ssww_2019_fiducial9.text datacard_add.txt > ssww_2019_fiducial90.text;
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/Signal2:r_s0[1,0,10]' \
---PO 'map=.*/Signal3:r_s0[1,0,10]' \
-ssww_2019_fiducial90.text -o workspace_ssww_2019_fiducial90.root;
-
 root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(1,9)'
 cat ssww_2019_fiducial9.text datacard_add.txt > ssww_2019_fiducial91.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
 --PO 'map=.*/Signal2:r_s0[1,0,10]' \
 --PO 'map=.*/Signal3:r_s0[1,0,10]' \
 ssww_2019_fiducial91.text -o workspace_ssww_2019_fiducial91.root;
 
-echo "CMS_ssww_wwttnorm  rateParam SSWW_2016 Signal2 1 [0.1,3]" >> ssww_2019_fiducial9.text
-echo "CMS_ssww_wwttnorm  rateParam SSWW_2017 Signal2 1 [0.1,3]" >> ssww_2019_fiducial9.text
-echo "CMS_ssww_wwttnorm  rateParam SSWW_2018 Signal2 1 [0.1,3]" >> ssww_2019_fiducial9.text
+root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(2,9)'
+cat ssww_2019_fiducial9.text datacard_add.txt > ssww_2019_fiducial92.text;
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s0[1,0,10]' \
+--PO 'map=.*/Signal3:r_s0[1,0,10]' \
+ssww_2019_fiducial92.text -o workspace_ssww_2019_fiducial92.root;
+
+echo "CMS_ssww_wwttnorm  rateParam SSWW_2016 Signal3 1 [0.1,3]" >> ssww_2019_fiducial9.text
+echo "CMS_ssww_wwttnorm  rateParam SSWW_2017 Signal3 1 [0.1,3]" >> ssww_2019_fiducial9.text
+echo "CMS_ssww_wwttnorm  rateParam SSWW_2018 Signal3 1 [0.1,3]" >> ssww_2019_fiducial9.text
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/Signal3:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s0[1,0,10]' \
 ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_rs0only.root;
 
   if [ $# == 2 ] && [ $2 == 'comb' ]; then
@@ -681,20 +694,23 @@ ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_rs0only.root;
     echo "CMS_ssww_wznorm  rateParam SSWW_2019 WZ 1 [0.1,3]" >> ssww_comb_fiducial5.text
 
     text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
-    --PO 'map=.*/BSM:r_s0[1,0,10]' \
-    --PO 'map=.*/Signal1:r_s1[1,0,10]' \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s1[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s1[1,0,10]' \
     ssww_comb_fiducial5.text -o workspace_ssww_comb_fiducial5.root;
 
-    echo "CMS_ssww_wwttnorm  rateParam SSWW_2019 Signal1 1 [0.1,3]" >> ssww_comb_fiducial5.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2019 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2019 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5.text
 
     text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
-    --PO 'map=.*/BSM:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
     ssww_comb_fiducial5.text -o workspace_ssww_comb_fiducial5_rs0only.root;
 
     combineCards.py -S SSWW_2019=datacard_ssww_comb_fiducial9.txt > ssww_comb_fiducial9.text;
     echo "CMS_ssww_wznorm  rateParam SSWW_2019 WZ 1 [0.1,3]" >> ssww_comb_fiducial9.text
 
     text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
     --PO 'map=.*/Signal2:r_s0[1,0,10]' \
     --PO 'map=.*/Signal3:r_s1[1,0,10]' \
     ssww_comb_fiducial9.text -o workspace_ssww_comb_fiducial9.root;

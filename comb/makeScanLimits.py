@@ -19,7 +19,7 @@ def doAnalysis(n):
     print "n = ",n
     print "*********"
     cross_section_Dict = dict()
-    with open("unpart_cross_sections.txt", 'r') as fout:
+    with open("add_cross_sections.txt", 'r') as fout:
     	content = fout.read().splitlines()
         for nChan in range(0, len(content)):
     	    theString = content[nChan].split(' ')
@@ -29,7 +29,7 @@ def doAnalysis(n):
     #print cross_section_Dict
 
     cross_section_limits_Dict = dict()
-    with open("unpart_cross_sections_limits.txt", 'r') as fout:
+    with open("add_cross_sections_limits.txt", 'r') as fout:
     	content = fout.read().splitlines()
         for nChan in range(0, len(content)):
     	    theString = content[nChan].split(' ')
