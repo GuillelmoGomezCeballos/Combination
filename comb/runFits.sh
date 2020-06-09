@@ -409,29 +409,29 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial92.root -n ssww_2019_fiducial
 #--redefineSignalPOIs r_s0,r_s1 -P r_s0 -P r_s1 --floatOtherPOIs=1 >& log_ssww_2019_fiducial5_grid_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_nosigexp \
---algo grid --points 500 --setParameterRanges r_s0=0.0,4.0:r_s1=0.0,2.0  \
+--algo grid --points 500 --setParameterRanges r_s0=0.0,5.0:r_s1=0.0,2.0  \
 --redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
 --setParameters r_s0=0,r_s1=1 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_nosigexp &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp \
---algo grid --points 500 --setParameterRanges r_s0=0.0,4.0:r_s1=0.0,2.0  \
+--algo grid --points 500 --setParameterRanges r_s0=0.0,5.0:r_s1=0.0,2.0  \
 --redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 --fastScan \
 --setParameters r_s0=0,r_s1=1 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_exp \
---algo grid --points 500 --setParameterRanges r_s0=0.0,4.0:r_s1=0.0,2.0  \
+--algo grid --points 500 --setParameterRanges r_s0=0.0,5.0:r_s1=0.0,2.0  \
 --redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
 --setParameters r_s0=1,r_s1=1 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_exp &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_obs \
---algo grid --points 500 --setParameterRanges r_s0=0.0,0.0:r_s1=0.0,2.0 \
+--algo grid --points 500 --setParameterRanges r_s0=0.0,5.0:r_s1=0.0,2.0 \
 --redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 >& log_ssww_2019_fiducial5_grid_rs0_obs &
 
 #python ~/releases/CMSSW_10_2_13/src/CombineHarvester/CombineTools/scripts/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0*383" --translate translate.json --main-label "ObserveD"
 #python ~/releases/CMSSW_10_2_13/src/CombineHarvester/CombineTools/scripts/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root --POI "r_s0*383" --translate translate.json --main-label "ObserveD"
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan0.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan1.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan2.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root          --POI "r_s0*0.383" --main-label "";mv scan.root scan0.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0*0.383" --main-label "";mv scan.root scan1.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root               --POI "r_s0*0.383" --main-label "";mv scan.root scan2.root;
 
   if [ $# == 2 ] && [ $2 == 'comb' ]; then
 
