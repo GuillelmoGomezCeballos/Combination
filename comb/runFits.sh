@@ -275,32 +275,32 @@ combine -M MultiDimFit workspace_ssww_comb_fiducial31.root -n ssww_comb_fiducial
 #limit->Scan("r_s2:abs(r_s2-1.0062296)","deltaNLL==0||abs(2*deltaNLL-1)<0.008")
 nohup combine -M MultiDimFit workspace_ssww_comb_fiducial3all.root -n ssww_comb_fiducial3all_r_s0_fast_obs \
 --algo grid --points 2000 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s0 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_fiducial3all_r_s0_fast_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_fiducial3all_r_s0_fast_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_comb_fiducial3all.root -n ssww_comb_fiducial3all_r_s1_fast_obs \
 --algo grid --points 2000 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_fiducial3all_r_s1_fast_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_fiducial3all_r_s1_fast_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_comb_fiducial3all.root -n ssww_comb_fiducial3all_r_s2_fast_obs \
 --algo grid --points 2000 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s2 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_fiducial3all_r_s2_fast_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s2 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_fiducial3all_r_s2_fast_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_comb_fiducial3all_2poi.root -n ssww_comb_fiducial3all_2poi_fast_r_s0_obs \
 --algo grid --points 2000 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s0 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_fiducial3all_2poi_fast_r_s0_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_fiducial3all_2poi_fast_r_s0_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_comb_fiducial3all_2poi.root -n ssww_comb_fiducial3all_2poi_fast_r_s1_obs \
 --algo grid --points 2000 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_fiducial3all_2poi_fast_r_s1_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_fiducial3all_2poi_fast_r_s1_obs &
 
 
 nohup combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_grid_fast_exp \
 --algo grid --points 5000 --setParameterRanges r_s0=0.0,2.5:r_s1=0.0,2.5:r_s2=0.0,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 -P r_s2 --floatOtherPOIs=1 --fastScan \
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 -P r_s2 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances \
 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1 >& log_ssww_comb_wwwz_grid_fast_exp &
 nohup combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_grid_fast_obs \
 --algo grid --points 5000 --setParameterRanges r_s0=0.0,2.5:r_s1=0.0,2.5:r_s2=0.0,2.5  \
---redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 -P r_s2 --floatOtherPOIs=1 --fastScan >& log_ssww_comb_wwwz_grid_fast_obs &
+--redefineSignalPOIs r_s0,r_s1,r_s2 -P r_s1 -P r_s2 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances >& log_ssww_comb_wwwz_grid_fast_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_grid_exp \
 --algo grid --points 5000 --setParameterRanges r_s0=0.0,2.5:r_s1=0.0,2.5:r_s2=0.0,2.5  \
@@ -415,7 +415,7 @@ nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fid
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp \
 --algo grid --points 500 --setParameterRanges r_s0=0.0,5.0:r_s1=0.0,2.0  \
---redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 --fastScan \
+--redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances \
 --setParameters r_s0=0,r_s1=1 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_rs0_exp \
