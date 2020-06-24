@@ -136,7 +136,7 @@ axishist = plot.GetAxisHist(pads[0])
 
 axishist.SetMaximum(args.y_max)
 axishist.GetYaxis().SetTitle("- 2 #Delta ln L")
-axishist.GetXaxis().SetTitle("%s" % "#sigma_{W_{L}W_{L}} [fb]")
+axishist.GetXaxis().SetTitle("%s" % fixed_name)
 
 new_min = axishist.GetXaxis().GetXmin()
 new_max = axishist.GetXaxis().GetXmax()
@@ -186,7 +186,8 @@ crossings = main_scan['crossings']
 val_nom = main_scan['val']
 val_2sig = main_scan['val_2sig']
 
-textfit = '%s = %.3f{}^{#plus %.3f}_{#minus %.3f} fb' % ("#sigma_{W_{L}W_{L}}", val_nom[0], val_nom[1], abs(val_nom[2]))
+textfit = '%s = %.3f{}^{#plus %.3f}_{#minus %.3f}' % (fixed_name, val_nom[0], val_nom[1], abs(val_nom[2]))
+print textfit
 
 
 pt = ROOT.TPaveText(0.59, 0.82 - len(other_scans)*0.08, 0.95, 0.91, 'NDCNB')
@@ -258,5 +259,4 @@ outfile.WriteTObject(save_graph)
 outfile.Close()
 canv.Print('.pdf')
 canv.Print('.png')
-canv.Print('.C')
 
