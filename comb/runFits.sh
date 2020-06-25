@@ -40,7 +40,11 @@ for sampleName in 115 125 150 200 300 500 800 1000; do
    fi
    if [ ${sampleName} == '1000' ]; then
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf expnosig >& log_mlf_vbfg_${sampleName}_expnosig &
    fi
+
+   nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} grid obs >& log_grid_vbfg_${sampleName}_obs &
+   nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} grid expnosig >& log_grid_vbfg_${sampleName}_expnosig &
 
   echo "sample: "${sampleName};
   ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} limit obs

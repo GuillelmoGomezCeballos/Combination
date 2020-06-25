@@ -74,6 +74,13 @@ combine -M MultiDimFit workspace_$2.root -n $2${ADDTEXT} --algo=grid --robustFit
 elif [ $3 = "gof" ]; then
 combine -M GoodnessOfFit workspace_$2.root -n $2${ADDTEXT} --algo=saturated $PARAMGOF
 
+elif [ $3 = "grid" ]; then
+#combine -M MultiDimFit workspace_$2.root -n $2_grid_rs0_${ADDTEXT}          --algo grid --points 500 --setParameterRanges r_s0=-0.5,1.5 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 --fastScan $PARAM
+combine -M MultiDimFit workspace_$2.root -n $2_grid_rs0_${ADDTEXT}          --algo grid --points 500 --setParameterRanges r_s0=-0.5,1.5 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances $PARAM
+combine -M MultiDimFit workspace_$2.root -n $2_grid_rs0_fastScan_${ADDTEXT} --algo grid --points 500 --setParameterRanges r_s0=-0.5,1.5 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 $PARAM
+python ~/ana_area/Combination/comb/plot1DScan.py higgsCombine$2_grid_rs0_fastScan_${ADDTEXT}.MultiDimFit.mH120.root --POI "r_s0"
+python ~/ana_area/Combination/comb/plot1DScan.py higgsCombine$2_grid_rs0_${ADDTEXT}.MultiDimFit.mH120.root --POI "r_s0"
+
 else
   echo "wrong option"
 
