@@ -155,7 +155,7 @@ nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_obs \
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan0.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_obs.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan2.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan2.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan3.root;
 
 elif [ $1 = "zhg" ]; then
 echo "*****ZHG125*******"
@@ -207,14 +207,6 @@ echo "*****SSWW*******"
 ~/ana_area/Combination/comb/runFit.sh . ssww_2018_ww significance obs
 ~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance exp
 ~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_ww significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_ww significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_ww significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_ww significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_ww significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_ww significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_ww significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_ww significance obs
 ~/ana_area/Combination/comb/runFit.sh . ssww_2016_wz significance exp
 ~/ana_area/Combination/comb/runFit.sh . ssww_2016_wz significance obs
 ~/ana_area/Combination/comb/runFit.sh . ssww_2017_wz significance exp
@@ -223,14 +215,6 @@ echo "*****SSWW*******"
 ~/ana_area/Combination/comb/runFit.sh . ssww_2018_wz significance obs
 ~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance exp
 ~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_wz significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2016_fiducial6_wz significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_wz significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2017_fiducial6_wz significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_wz significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2018_fiducial6_wz significance obs
-~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_wz significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_wz significance obs
 
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all impacts exp >& log_impacts_ssww_exp &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial3all impacts obs >& log_impacts_ssww_obs &
@@ -256,8 +240,6 @@ combine -M MultiDimFit workspace_ssww_comb_intf.root -n ssww_comb_intf_exp --alg
 combine -M MultiDimFit workspace_ssww_comb_intf.root -n ssww_comb_intf_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2
 combine -M MultiDimFit workspace_ssww_comb_wwwz_2poi.root -n ssww_comb_wwwz_2poi_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0.0,2.5:r_s1=0.0,2.5 --setParameters r_s0=1,r_s1=1 -t -1
 combine -M MultiDimFit workspace_ssww_comb_wwwz_2poi.root -n ssww_comb_wwwz_2poi_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0.0,2.5:r_s1=0.0,2.5
-combine -M MultiDimFit workspace_ssww_comb_fiducial6_wwwz.root -n ssww_comb_fiducial6_wwwz_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
-combine -M MultiDimFit workspace_ssww_comb_fiducial6_wwwz.root -n ssww_comb_fiducial6_wwwz_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0.5,2.5:r_s1=0.5,2.5:r_s2=0.5,1.5
 
 echo "****fiducial1*****"
 combine -M MultiDimFit workspace_ssww_comb_fiducial1all.root -n ssww_comb_fiducial1all_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameters r_s0=1,r_s1=1 -t -1
@@ -415,10 +397,16 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5
 --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-2,4
 
 combine -M MultiDimFit workspace_ssww_2019_fiducial9.root -n ssww_2019_fiducial9_exp \
---algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s0=0,3 \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s1=0,3 \
 --setParameters r_s0=1,r_s1=1 -t -1
 combine -M MultiDimFit workspace_ssww_2019_fiducial9.root -n ssww_2019_fiducial9_obs \
---algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s0=0,3
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s1=0,3
+
+#combine -M MultiDimFit workspace_ssww_2019_fiducial9_split.root -n ssww_2019_fiducial9_split_exp \
+#--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0,3:r_s1=0,3:r_s2=0,3 \
+#--setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
+#combine -M MultiDimFit workspace_ssww_2019_fiducial9_split.root -n ssww_2019_fiducial9_split_obs \
+#--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0,3:r_s1=0,3:r_s2=0,3
 
 combine -M MultiDimFit workspace_ssww_2019_fiducial51.root -n ssww_2019_fiducial51_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameters r_s0=1,REWK=1 -t -1
 combine -M MultiDimFit workspace_ssww_2019_fiducial51.root -n ssww_2019_fiducial51_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameterRanges r_s0=0.3,1.5:REWK=-1,3
@@ -462,9 +450,11 @@ nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root          --POI "r_s0*0.441" --main-label "";mv scan.root scan0.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0*0.441" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root               --POI "r_s0*0.441" --main-label "";mv scan.root scan2.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root               --POI "r_s0*0.441" --main-label "";mv scan.root scan3.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root          --POI "r_s0*0.279" --main-label "";mv scan.root scan0.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0*0.279" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root               --POI "r_s0*0.279" --main-label "";mv scan.root scan2.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root               --POI "r_s0*0.279" --main-label "";mv scan.root scan3.root;
 
   if [ $# == 2 ] && [ $2 == 'comb' ]; then
 
@@ -487,6 +477,91 @@ nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_
     --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1
     
   fi
+
+elif [ $1 == "higgs" ]; then
+echo "*****HIGGS*******"
+
+for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000; do
+#for sampleName in 300; do
+echo "sample: "${sampleName};
+
+#grep -e "r_s0 <" -e "r_s1 <" log_runFits_*|awk '{xs=1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%6==0)printf("\n");if(NR%36==0)printf("--------------\n");}'
+
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1 -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0 -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMax 1.0
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance obs
+
+if [ ${sampleName} == 500 ]; then
+
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  mlf obs >& log_mlf_ssww_2019_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  mlf obs >& log_mlf_ssww_comb_fiducial6_mH${sampleName}_obs &
+
+fi
+
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_nosigexp \
+#--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
+#--redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
+#--setParameters r_s0=0 -t -1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_nosigexp &
+#
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_obs \
+#--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
+#--redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_obs &
+#
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_nosigexp \
+#--algo grid --points 500 --setParameterRanges r_s1=-1,1 \
+#--redefineSignalPOIs r_s0,r_s1 -P r_s1 --floatOtherPOIs=1 \
+#--setParameters r_s1=0 -t -1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_nosigexp &
+
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_obs \
+#--algo grid --points 500 --setParameterRanges r_s1=-1,1 \
+#--redefineSignalPOIs r_s0,r_s1 -P r_s1 --floatOtherPOIs=1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_obs &
+
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_2019_fiducial6_mH${sampleName}_grid_rs0_nosigexp \
+#--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
+#--redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
+#--setParameters r_s0=0 -t -1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_grid_rs0_nosigexp &
+#
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_2019_fiducial6_mH${sampleName}_grid_rs0_obs \
+#--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
+#--redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
+#>& log_ssww_2019_fiducial6_mH${sampleName}_grid_rs0_obs &
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs2_nosigexp.MultiDimFit.mH120.root --POI "r_s0";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs2_obs.MultiDimFit.mH120.root      --POI "r_s0";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs3_nosigexp.MultiDimFit.mH120.root --POI "r_s1";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs3_obs.MultiDimFit.mH120.root      --POI "r_s1";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_grid_rs2_nosigexp.MultiDimFit.mH120.root --POI "r_s0";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_grid_rs2_obs.MultiDimFit.mH120.root	   --POI "r_s0";
+
+combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_fiducial6_mH${sampleName}_split_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-1,4:r_s1=-1,4
+
+combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_fiducial6_mH${sampleName}_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0 --setParameterRanges r_s0=-1,4
+
+if [ $# == 2 ] && [ $2 == 'comb' ]; then
+
+combine -M AsymptoticLimits workspace_ssww_comb_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_comb_fiducial6_mH${sampleName}_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_comb_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1 -n ssww_comb_fiducial6_mH${sampleName}_split_rs0_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_comb_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0 -n ssww_comb_fiducial6_mH${sampleName}_split_rs1_obs --rMax 1.0
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName} significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName} significance obs
+
+combine -M MultiDimFit workspace_ssww_comb_fiducial6_mH${sampleName}_split.root -n ssww_fiducial6_mH${sampleName}_split_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-1,4:r_s1=-1,4
+
+combine -M MultiDimFit workspace_ssww_comb_fiducial6_mH${sampleName}.root -n ssww_fiducial6_mH${sampleName}_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0 --setParameterRanges r_s0=-1,4
+
+fi
+
+done
 
 elif [ $1 = "ww" ]; then
 echo "*****WW*******"

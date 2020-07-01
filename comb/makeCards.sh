@@ -443,63 +443,6 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel -
 --PO 'map=.*/WZ:r_s2[1,0,10]' \
 ssww_comb_fiducial31.text -o workspace_ssww_comb_fiducial31.root;
 
-# fiducial6
-combineCards.py -S datacard_ssww_201?_fiducial6.txt > ssww_comb_fiducial6.text;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
-ssww_comb_fiducial6.text -o workspace_ssww_comb_fiducial6_ww.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
---PO 'map=.*/ggWW:r_s0[1,0,10]' \
-ssww_comb_fiducial6.text -o workspace_ssww_comb_fiducial6_wz.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
---PO 'map=.*/EWKWZ:r_s1[1,0,10]' \
---PO 'map=.*/ggWW:r_s1[1,0,10]' \
---PO 'map=.*/WZ:r_s2[1,0,10]' \
-ssww_comb_fiducial6.text -o workspace_ssww_comb_fiducial6_wwwz.root;
-
-combineCards.py -S datacard_ssww_2016_fiducial6.txt > ssww_2016_fiducial6.text;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
-ssww_2016_fiducial6.text -o workspace_ssww_2016_fiducial6_ww.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
---PO 'map=.*/ggWW:r_s0[1,0,10]' \
-ssww_2016_fiducial6.text -o workspace_ssww_2016_fiducial6_wz.root;
-
-combineCards.py -S datacard_ssww_2017_fiducial6.txt > ssww_2017_fiducial6.text;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
-ssww_2017_fiducial6.text -o workspace_ssww_2017_fiducial6_ww.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
---PO 'map=.*/ggWW:r_s0[1,0,10]' \
-ssww_2017_fiducial6.text -o workspace_ssww_2017_fiducial6_wz.root;
-
-combineCards.py -S datacard_ssww_2018_fiducial6.txt > ssww_2018_fiducial6.text;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
-ssww_2018_fiducial6.text -o workspace_ssww_2018_fiducial6_ww.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
---PO 'map=.*/ggWW:r_s0[1,0,10]' \
-ssww_2018_fiducial6.text -o workspace_ssww_2018_fiducial6_wz.root;
-
 # fiducial7
 combineCards.py -S datacard_ssww_201?_fiducial7.txt > ssww_comb_fiducial7.text;
 
@@ -638,6 +581,12 @@ SSWW_2018=datacard_ssww_2018_fiducial9.txt \
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
 --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s2[1,0,10]' \
+ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_split.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
 --PO 'map=.*/Signal2:r_s0[1,0,10]' \
 --PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9.root;
@@ -717,6 +666,73 @@ ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_rs0only.root;
 
   fi
 
+elif [ $1 = "higgs" ]; then
+
+for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000; do
+#for sampleName in 500; do
+echo "sample: "${sampleName};
+
+combineCards.py -S \
+SSWW_2016=datacard_ssww_2016_fiducial6_mH${sampleName}.txt \
+SSWW_2017=datacard_ssww_2017_fiducial6_mH${sampleName}.txt \
+SSWW_2018=datacard_ssww_2018_fiducial6_mH${sampleName}.txt \
+> ssww_2019_fiducial6_mH${sampleName}.text;
+
+echo "CMS_ssww_wwnorm  rateParam SSWW_2016 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+echo "CMS_ssww_wwnorm  rateParam SSWW_2017 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+echo "CMS_ssww_wwnorm  rateParam SSWW_2018 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+echo "CMS_ssww_wznorm  rateParam SSWW_2016 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+echo "CMS_ssww_wznorm  rateParam SSWW_2017 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+echo "CMS_ssww_wznorm  rateParam SSWW_2018 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
+
+#--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+#--PO 'map=.*/WZ:r_s1[1,0,10]' \
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/BSM:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+ssww_2019_fiducial6_mH${sampleName}.text -o workspace_ssww_2019_fiducial6_mH${sampleName}.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/BSM:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s1[1,0,10]' \
+ssww_2019_fiducial6_mH${sampleName}.text -o workspace_ssww_2019_fiducial6_mH${sampleName}_split.root;
+
+  if [ $# == 2 ] && [ $2 == 'comb' ]; then
+    cd ..;
+    cd $CMSSW_BASE/src;
+    eval `scramv1 runtime -sh`;
+    cd -;
+
+    hadd -f ssww_comb_fiducial6_mH${sampleName}_input.root ana_higgs/ssww_201?_fiducial6_mH${sampleName}_input.root;
+    root -l -q -b MitAnalysisRunII/panda/macros/9x/makeSSWWDataCards.C+'("ssww_comb_fiducial6_mH'${sampleName}'_input.root",6,'${sampleName}')';
+
+    mv ssww_comb_fiducial6_mH${sampleName}_input.root ana_higgs/;
+    mv datacard_ssww_comb_fiducial6_mH${sampleName}.txt ana_higgs/;
+
+    cd ana_higgs/;
+    cd ~/releases/CMSSW_10_2_13/src/;
+    eval `scramv1 runtime -sh`;
+    cd -;
+  
+    combineCards.py -S SSWW_2019=datacard_ssww_comb_fiducial6_mH${sampleName}.txt > ssww_comb_fiducial6_mH${sampleName}.text;
+    echo "CMS_ssww_wwnorm  rateParam SSWW_2019 EWKSSWW 1 [0.1,3]" >> ssww_comb_fiducial6_mH${sampleName}.text;
+    echo "CMS_ssww_wznorm  rateParam SSWW_2019 WZ 1 [0.1,3]"      >> ssww_comb_fiducial6_mH${sampleName}.text;
+
+    #--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+    #--PO 'map=.*/WZ:r_s1[1,0,10]' \
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/BSM:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    ssww_comb_fiducial6_mH${sampleName}.text -o workspace_ssww_comb_fiducial6_mH${sampleName}.root;
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/BSM:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal1:r_s1[1,0,10]' \
+    ssww_comb_fiducial6_mH${sampleName}.text -o workspace_ssww_comb_fiducial6_mH${sampleName}_split.root;
+
+  fi
+
+done
 
 elif [ $1 = "ww" ]; then
 
