@@ -41,8 +41,7 @@ if [ $3 = "mu" ]; then
 elif [ $3 = "impacts" ]; then
   # run on t3btch051 or t3btch053
   combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doInitialFit $PARAM;
-  #combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doFits --parallel 15 $PARAM;
-  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doFits $PARAM;
+  combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-2 --rMax=3 --doFits --parallel 5 $PARAM;
   combineTool.py -M Impacts -d workspace_$2.root -m 125 -n $2${ADDTEXT} -o impacts$2${ADDTEXT}.json $PARAM;
   plotImpacts.py -i impacts$2${ADDTEXT}.json -o impacts$2${ADDTEXT};
 

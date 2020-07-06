@@ -546,6 +546,18 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel -
 --PO 'map=.*/Signal3:r_s1[1,0,10]' \
 ssww_2019_fiducial5.text -o workspace_ssww_2019_fiducial5.root;
 
+if [ $# == 2 ] && [ $2 == 'intf' ]; then
+  cp ssww_2019_fiducial5.text ssww_2019_fiducial5_intf.text
+  echo "IntfWW1 rateParam * qqWW sqrt(@0) r_s0" >> ssww_2019_fiducial5_intf.text
+  echo "IntfWW2 rateParam * Top  sqrt(@0) r_s1" >> ssww_2019_fiducial5_intf.text
+  echo "IntfWW2 rateParam * DY   sqrt(@0) r_s1" >> ssww_2019_fiducial5_intf.text
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+  --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+  --PO 'map=.*/Signal2:r_s1[1,0,10]' \
+  --PO 'map=.*/Signal3:r_s1[1,0,10]' \
+  ssww_2019_fiducial5_intf.text -o workspace_ssww_2019_fiducial5_intf.root;
+fi
+
 root -l -q -b ../Combination/comb/makeSSWWLLParam.C'(1,5)'
 cat ssww_2019_fiducial5.text datacard_add.txt > ssww_2019_fiducial51.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
@@ -584,6 +596,18 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel -
 --PO 'map=.*/Signal2:r_s1[1,0,10]' \
 --PO 'map=.*/Signal3:r_s2[1,0,10]' \
 ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_split.root;
+
+if [ $# == 2 ] && [ $2 == 'intf' ]; then
+  cp ssww_2019_fiducial9.text ssww_2019_fiducial9_intf.text
+  echo "IntfWW1 rateParam * qqWW sqrt(@0) r_s0" >> ssww_2019_fiducial9_intf.text
+  echo "IntfWW2 rateParam * Top  sqrt(@0) r_s0" >> ssww_2019_fiducial9_intf.text
+  echo "IntfWW2 rateParam * DY   sqrt(@0) r_s1" >> ssww_2019_fiducial9_intf.text
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+  --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+  --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+  --PO 'map=.*/Signal3:r_s1[1,0,10]' \
+  ssww_2019_fiducial9_intf.text -o workspace_ssww_2019_fiducial9_intf.root;
+fi
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
 --PO 'map=.*/Signal1:r_s0[1,0,10]' \

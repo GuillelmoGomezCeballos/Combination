@@ -402,6 +402,22 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial9.root -n ssww_2019_fiducial9
 combine -M MultiDimFit workspace_ssww_2019_fiducial9.root -n ssww_2019_fiducial9_obs \
 --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s1=0,3
 
+if [ $# == 2 ] && [ $2 == 'intf' ]; then
+
+combine -M MultiDimFit workspace_ssww_2019_fiducial5_intf.root -n ssww_2019_fiducial5_intf_exp \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-2,4 \
+--setParameters r_s0=1,r_s1=1 -t -1
+combine -M MultiDimFit workspace_ssww_2019_fiducial5_intf.root -n ssww_2019_fiducial5_intf_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-2,4
+
+combine -M MultiDimFit workspace_ssww_2019_fiducial9_intf.root -n ssww_2019_fiducial9_intf_exp \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s1=0,3 \
+--setParameters r_s0=1,r_s1=1 -t -1
+combine -M MultiDimFit workspace_ssww_2019_fiducial9_intf.root -n ssww_2019_fiducial9_intf_obs \
+--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=0,3:r_s1=0,3
+
+fi
+
 #combine -M MultiDimFit workspace_ssww_2019_fiducial9_split.root -n ssww_2019_fiducial9_split_exp \
 #--algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0,3:r_s1=0,3:r_s2=0,3 \
 #--setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
