@@ -12,7 +12,7 @@ cd -;
 if [ $1 = "darkg" ]; then
 echo "*****darkg*******"
 #grep -e sample -e r_s0 log_runFits_darkg|awk '{xs=0.1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%7==0)printf("\n");}'
-for sampleName in 125 200 300; do
+for sampleName in 125; do
   nohup ~/ana_area/Combination/comb/runFit.sh . darkg_comb_${sampleName} mlf obs >& log_mlf_darkg_comb_${sampleName}_obs &
   echo "sample: "${sampleName};
   ~/ana_area/Combination/comb/runFit.sh . darkg_comb_${sampleName} limit obs
@@ -21,12 +21,15 @@ done
 elif [ $1 = "vbfg" ]; then
 echo "*****vbfg*******"
 #grep -e sample -e r_s0 log_runFits_vbfg|awk '{xs=0.1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%7==0)printf("\n");}'
-for sampleName in 115 125 150 200 300 500 800 1000; do
-#for sampleName in 125; do
+for sampleName in 115 120 125 150 200 300 500 800 1000; do
+#for sampleName in 120; do
 
   if [ ${sampleName} == '115' ]; then
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
   fi
+  if [ ${sampleName} == '120' ]; then
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
+   fi
   if [ ${sampleName} == '125' ]; then
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName}_2016 mlf obs >& log_mlf_vbfg_${sampleName}_2016_obs &

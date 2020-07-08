@@ -6,11 +6,11 @@ cd -;
 
 if [ $1 = "darkg" ]; then
 
-for sampleName in 125 200 300; do
+for sampleName in 125; do
 
 combineCards.py -S \
 ../ana_zhg/zhg_comb_${sampleName}.text \
-../done_vbfg/vbfg${sampleName}.text \
+../done_vbfg/vbfg120.text \
 > darkg_comb_${sampleName}.text
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' darkg_comb_${sampleName}.text -o workspace_darkg_comb_${sampleName}.root;
 
@@ -18,8 +18,8 @@ done
 
 elif [ $1 = "vbfg" ]; then
 
-for sampleName in 115 125 150 200 300 500 800 1000; do
-#for sampleName in 115; do
+for sampleName in 115 120 125 150 200 300 500 800 1000; do
+#for sampleName in 120; do
    echo "sample: "${sampleName};
   combineCards.py -S \
   VBFG_2016_trigger0=datacard_vbfg_2016_trigger0_mH${sampleName}.txt \
