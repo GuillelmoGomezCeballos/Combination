@@ -12,7 +12,8 @@ combineCards.py -S \
 ../ana_zhg/zhg_comb_${sampleName}.text \
 ../done_vbfg/vbfg120.text \
 > darkg_comb_${sampleName}.text
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' darkg_comb_${sampleName}.text -o workspace_darkg_comb_${sampleName}.root;
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+--PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' darkg_comb_${sampleName}.text -o workspace_darkg_comb_${sampleName}.root;
 
 done
 
@@ -59,6 +60,24 @@ for sampleName in 115 120 125 150 200 300 500 800 1000; do
   VBFG_2018_trigger1=datacard_vbfg_2018_trigger1_mH${sampleName}.txt \
   > vbfg${sampleName}_2018_trigger1.text
 
+  if [ ${sampleName} == '120' ]; then
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}.text -o workspace_vbfg${sampleName}.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2016.text -o workspace_vbfg${sampleName}_2016.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2017.text -o workspace_vbfg${sampleName}_2017.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2017_trigger0.text -o workspace_vbfg${sampleName}_2017_trigger0.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2017_trigger1.text -o workspace_vbfg${sampleName}_2017_trigger1.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2018.text -o workspace_vbfg${sampleName}_2018.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2018_trigger0.text -o workspace_vbfg${sampleName}_2018_trigger0.root;
+  text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+                    --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' --PO 'map=.*/Signal1:r_s0[1,0,10]' vbfg${sampleName}_2018_trigger1.text -o workspace_vbfg${sampleName}_2018_trigger1.root;
+  else
   text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
                     --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' vbfg${sampleName}.text -o workspace_vbfg${sampleName}.root;
   text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
@@ -75,6 +94,8 @@ for sampleName in 115 120 125 150 200 300 500 800 1000; do
                     --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' vbfg${sampleName}_2018_trigger0.text -o workspace_vbfg${sampleName}_2018_trigger0.root;
   text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
                     --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' vbfg${sampleName}_2018_trigger1.text -o workspace_vbfg${sampleName}_2018_trigger1.root;
+  fi
+
 done
 
 elif [ $1 = "aqgc" ]; then
