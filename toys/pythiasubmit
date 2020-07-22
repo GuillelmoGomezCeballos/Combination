@@ -1,0 +1,71 @@
+#!/usr/bin/python
+
+from multiprocessing import Process
+from optparse import OptionParser
+from operator import add
+import sys
+import array
+import os
+import csv
+import random
+
+def main(options,args):
+	with open(options.ifile) as f:
+		content = f.readlines()
+	content = [x.strip() for x in content]
+
+	uid = os.getenv('USER')
+	if not os.path.isdir(os.getenv('PWD')+'/logs'):
+		os.system('mkdir %s/logs' % os.getenv('PWD'))
+	if not os.path.isdir("/tmp/"+uid):
+		os.system('mkdir /tmp/%s' % uid)
+
+	for i in range(len(content)):
+		randomseed = random.randint(1,1000000)
+		while os.path.isfile("/tmp/"+uid+'/tmpjob_%s.sh' % str(randomseed)):
+			randomseed = random.randint(1,1000000)
+			
+		with open("/tmp/"+uid+'/tmpjob_%s.sh' % str(randomseed),"w") as commandfile:
+			commandfile.write("#!/bin/bash" + "\n")
+			#commandfile.write(". /data/t3home000/hbb/standalone_framework/setup.sh;")
+			commandfile.write(content[i])
+			commandfile.write('\n')
+			commandfile.write('hostname')
+			commandfile.write('\n')
+			commandfile.write('exit 0')
+			
+		classad='''
+                        executable = /tmp/{0}/tmpjob_{1}.sh
+                        should_transfer_files = YES
+                        transfer_input_files = ""
+                        transfer_output_files = ""
+                        input = /dev/null
+                        output = {2}/logs/$(Cluster)_$(Process).out
+                        error = {2}/logs/$(Cluster)_$(Process).err
+                        log = {2}/logs/$(Cluster)_$(Process).log
+                        requirements = (Arch == "X86_64") && (TARGET.Machine != "t3desk014.mit.edu")
+                        arguments = $(Process) 
+                        +REQUIRED_OS = "rhel7"
+                        +AccountingGroup = "group_t3mit.bmaier"
+                        +AcctGroup = "group_t3mit.urgent"
+                        +SkipAllChecks = True
+                        use_x509userproxy = 1
+                        x509userproxy = /tmp/x509up_u{3}
+                        queue 1
+                        '''.format(uid,str(randomseed),os.getenv('PWD'),os.getuid())
+
+		with open("/tmp/"+uid+'/condor_%s.jdl' % str(randomseed),'w') as jdlfile:
+			jdlfile.write(classad)
+		
+		os.system('condor_submit /tmp/%s/condor_%s.jdl' % (uid,str(randomseed)))	
+			
+		
+if __name__ == '__main__':
+        parser = OptionParser()
+        parser.add_option('-i','--ifile', dest='ifile', default = 'file.sh',help='Which script to submit line by line', metavar='ifile')
+
+        (options, args) = parser.parse_args()
+         
+        main(options,args)
+
+

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# clean terminal
+./createToys.sh > submit_toys_temp.sh;
+./pythiasubmit -i submit_toys_temp.sh;
+
+# CMSSW8
+hadd -f /data/t3home000/ceballos/toys/alltoys.root /data/t3home000/ceballos/toys/fitDiagnostics*.root;
+
+#CMSSW10
+#python drawToys.py /data/t3home000/ceballos/toys/alltoys.root;
+python drawToys_long.py /data/t3home000/ceballos/toys/alltoys.root;
