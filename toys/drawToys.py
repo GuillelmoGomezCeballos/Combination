@@ -57,6 +57,7 @@ for key in tfile.GetListOfKeys():
 
 processes = ['PhotonE0', 'PhotonE1', 'DY', 'GJ0', 'GJ1', 'NonPrompt', 'Top', 'VV', 'VVV', 'WG', 'WJ0', 'WJ1', 'WJ2', 'WJ3', 'WJ4', 'WJ5', 'ZG']
 regions = ['VBFG_2016_trigger0', 'VBFG_2017_trigger0', 'VBFG_2017_trigger1', 'VBFG_2018_trigger0', 'VBFG_2018_trigger1']
+#regions = ['VBFG_2016_trigger0_sr', 'VBFG_2017_trigger0_sr', 'VBFG_2017_trigger1_sr', 'VBFG_2018_trigger0_sr', 'VBFG_2018_trigger1_sr','VBFG_2016_trigger0_cr', 'VBFG_2017_trigger0_cr', 'VBFG_2017_trigger1_cr', 'VBFG_2018_trigger0_cr', 'VBFG_2018_trigger1_cr']
 
 print(processes)
 print(regions)
