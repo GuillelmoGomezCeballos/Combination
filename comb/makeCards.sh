@@ -723,15 +723,6 @@ SSWW_2017=datacard_ssww_2017_fiducial6_mH${sampleName}.txt \
 SSWW_2018=datacard_ssww_2018_fiducial6_mH${sampleName}.txt \
 > ssww_2019_fiducial6_mH${sampleName}.text;
 
-echo "CMS_ssww_wwnorm  rateParam SSWW_2016 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-echo "CMS_ssww_wwnorm  rateParam SSWW_2017 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-echo "CMS_ssww_wwnorm  rateParam SSWW_2018 EWKSSWW 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-echo "CMS_ssww_wznorm  rateParam SSWW_2016 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-echo "CMS_ssww_wznorm  rateParam SSWW_2017 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-echo "CMS_ssww_wznorm  rateParam SSWW_2018 WZ 1 [0.1,3]" >> ssww_2019_fiducial6_mH${sampleName}.text
-
-#--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
-#--PO 'map=.*/WZ:r_s1[1,0,10]' \
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
 --PO 'map=.*/BSM:r_s0[1,0,10]' \
 --PO 'map=.*/Signal1:r_s0[1,0,10]' \
@@ -760,11 +751,9 @@ ssww_2019_fiducial6_mH${sampleName}.text -o workspace_ssww_2019_fiducial6_mH${sa
     cd -;
   
     combineCards.py -S SSWW_2019=datacard_ssww_comb_fiducial6_mH${sampleName}.txt > ssww_comb_fiducial6_mH${sampleName}.text;
-    echo "CMS_ssww_wwnorm  rateParam SSWW_2019 EWKSSWW 1 [0.1,3]" >> ssww_comb_fiducial6_mH${sampleName}.text;
-    echo "CMS_ssww_wznorm  rateParam SSWW_2019 WZ 1 [0.1,3]"      >> ssww_comb_fiducial6_mH${sampleName}.text;
+    #echo "CMS_ssww_wwnorm  rateParam SSWW_2019 EWKSSWW 1 [0.1,3]" >> ssww_comb_fiducial6_mH${sampleName}.text;
+    #echo "CMS_ssww_wznorm  rateParam SSWW_2019 WZ 1 [0.1,3]"      >> ssww_comb_fiducial6_mH${sampleName}.text;
 
-    #--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
-    #--PO 'map=.*/WZ:r_s1[1,0,10]' \
     text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
     --PO 'map=.*/BSM:r_s0[1,0,10]' \
     --PO 'map=.*/Signal1:r_s0[1,0,10]' \

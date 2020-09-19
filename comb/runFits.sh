@@ -20,7 +20,7 @@ done
 
 elif [ $1 = "vbfg" ]; then
 echo "*****vbfg*******"
-#grep -e sample -e r_s0 log_runFits_vbfg|awk '{xs=0.1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%7==0)printf("\n");}'
+#grep -e sample -e r_s0 log_runFits_vbfg|awk '{xs=0.05;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%7==0)printf("\n");}'
 for sampleName in 115 120 125 150 200 300 500 800 1000; do
 #for sampleName in 120; do
 
@@ -41,9 +41,15 @@ for sampleName in 115 120 125 150 200 300 500 800 1000; do
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof obs >& log_gof_vbfg_${sampleName}_obs &
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof exp >& log_gof_vbfg_${sampleName}_exp &
    fi
+   if [ ${sampleName} == '500' ]; then
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts exp >& log_impacts_vbfg_${sampleName}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts expnosig >& log_impacts_vbfg_${sampleName}_expnosig &
+   fi
    if [ ${sampleName} == '1000' ]; then
-    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf obs >& log_mlf_vbfg_${sampleName}_obs &
-    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} mlf expnosig >& log_mlf_vbfg_${sampleName}_expnosig &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts exp >& log_impacts_vbfg_${sampleName}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts expnosig >& log_impacts_vbfg_${sampleName}_expnosig &
    fi
 
    #nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} grid obs >& log_grid_vbfg_${sampleName}_obs &
@@ -137,15 +143,15 @@ nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof obs >& log_gof_z
 nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof exp >& log_gof_zh_exp &
 
 echo "*****GRID*******"
-nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_nosigexp \
+nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_expnosig \
 --algo grid --points 240 --setParameterRanges r_s0=0.0,1.2 \
 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
---setParameters r_s0=0 -t -1 >& log_zh_comb_grid_rs0_nosigexp &
+--setParameters r_s0=0 -t -1 >& log_zh_comb_grid_rs0_expnosig &
 
-nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_fastScan_nosigexp \
+nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_fastScan_expnosig \
 --algo grid --points 240 --setParameterRanges r_s0=0.0,1.2 \
 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances \
---setParameters r_s0=0 -t -1 >& log_zh_comb_grid_rs0_fastScan_nosigexp &
+--setParameters r_s0=0 -t -1 >& log_zh_comb_grid_rs0_fastScan_expnosig &
 
 nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_exp \
 --algo grid --points 240 --setParameterRanges r_s0=0.0,1.2 \
@@ -155,8 +161,8 @@ nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_exp \
 nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_obs \
 --algo grid --points 240 --setParameterRanges r_s0=0.0,1.2 \
 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 >& log_zh_comb_grid_rs0_obs &
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan0.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan1.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_expnosig.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan0.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_fastScan_expnosig.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_obs.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan2.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinezh_comb_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0" --main-label "";mv scan.root scan3.root;
 
@@ -445,15 +451,15 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial92.root -n ssww_2019_fiducial
 #--algo grid --points 5000 --setParameterRanges r_s0=-1.0,1.5:r_s1=0.0,2.5  \
 #--redefineSignalPOIs r_s0 -P r_s0 -P r_s1 --floatOtherPOIs=1 >& log_ssww_2019_fiducial5_grid_obs &
 
-nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_nosigexp \
+nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_expnosig \
 --algo grid --points 500 --setParameterRanges r_s0=0.0,5.0 \
 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
---setParameters r_s0=0 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_nosigexp &
+--setParameters r_s0=0 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_expnosig &
 
-nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp \
+nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_fastScan_expnosig \
 --algo grid --points 500 --setParameterRanges r_s0=0.0,5.0 \
 --redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 --freezeParameters allConstrainedNuisances \
---setParameters r_s0=0 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_fastScan_nosigexp &
+--setParameters r_s0=0 -t -1 >& log_ssww_2019_fiducial5_grid_rs0_fastScan_expnosig &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_exp \
 --algo grid --points 500 --setParameterRanges r_s0=0.0,5.0 \
@@ -466,12 +472,12 @@ nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_
 
 #python ~/releases/CMSSW_10_2_13/src/CombineHarvester/CombineTools/scripts/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root --POI "r_s0*999" --translate translate.json --main-label "ObserveD"
 #python ~/releases/CMSSW_10_2_13/src/CombineHarvester/CombineTools/scripts/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root --POI "r_s0*999" --translate translate.json --main-label "ObserveD"
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root          --POI "r_s0*0.441" --main-label "";mv scan.root scan0.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0*0.441" --main-label "";mv scan.root scan1.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_expnosig.MultiDimFit.mH120.root          --POI "r_s0*0.441" --main-label "";mv scan.root scan0.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_expnosig.MultiDimFit.mH120.root --POI "r_s0*0.441" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root               --POI "r_s0*0.441" --main-label "";mv scan.root scan2.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root               --POI "r_s0*0.441" --main-label "";mv scan.root scan3.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_nosigexp.MultiDimFit.mH120.root          --POI "r_s0*0.279" --main-label "";mv scan.root scan0.root;
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_nosigexp.MultiDimFit.mH120.root --POI "r_s0*0.279" --main-label "";mv scan.root scan1.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_expnosig.MultiDimFit.mH120.root          --POI "r_s0*0.279" --main-label "";mv scan.root scan0.root;
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_fastScan_expnosig.MultiDimFit.mH120.root --POI "r_s0*0.279" --main-label "";mv scan.root scan1.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_obs.MultiDimFit.mH120.root               --POI "r_s0*0.279" --main-label "";mv scan.root scan2.root;
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial5_grid_rs0_exp.MultiDimFit.mH120.root               --POI "r_s0*0.279" --main-label "";mv scan.root scan3.root;
 
@@ -516,46 +522,50 @@ if [ ${sampleName} == 500 ]; then
 
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  mlf obs >& log_mlf_ssww_2019_fiducial6_mH${sampleName}_obs &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  mlf obs >& log_mlf_ssww_comb_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_expnosig &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_expnosig &
 
 fi
 
-#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_nosigexp \
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_expnosig \
 #--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
 #--redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
 #--setParameters r_s0=0 -t -1 \
-#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_nosigexp &
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_expnosig &
 #
 #nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_obs \
 #--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
 #--redefineSignalPOIs r_s0,r_s1 -P r_s0 --floatOtherPOIs=1 \
 #>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_obs &
 #
-#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_nosigexp \
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_expnosig \
 #--algo grid --points 500 --setParameterRanges r_s1=-1,1 \
 #--redefineSignalPOIs r_s0,r_s1 -P r_s1 --floatOtherPOIs=1 \
 #--setParameters r_s1=0 -t -1 \
-#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_nosigexp &
+#>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_expnosig &
 
 #nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_obs \
 #--algo grid --points 500 --setParameterRanges r_s1=-1,1 \
 #--redefineSignalPOIs r_s0,r_s1 -P r_s1 --floatOtherPOIs=1 \
 #>& log_ssww_2019_fiducial6_mH${sampleName}_split_grid_rs1_obs &
 
-#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_2019_fiducial6_mH${sampleName}_grid_rs0_nosigexp \
+#nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_2019_fiducial6_mH${sampleName}_grid_rs0_expnosig \
 #--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
 #--redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
 #--setParameters r_s0=0 -t -1 \
-#>& log_ssww_2019_fiducial6_mH${sampleName}_grid_rs0_nosigexp &
+#>& log_ssww_2019_fiducial6_mH${sampleName}_grid_rs0_expnosig &
 #
 #nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}.root -n ssww_2019_fiducial6_mH${sampleName}_grid_rs0_obs \
 #--algo grid --points 500 --setParameterRanges r_s0=-1,1 \
 #--redefineSignalPOIs r_s0 -P r_s0 --floatOtherPOIs=1 \
 #>& log_ssww_2019_fiducial6_mH${sampleName}_grid_rs0_obs &
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs2_nosigexp.MultiDimFit.mH120.root --POI "r_s0";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs2_expnosig.MultiDimFit.mH120.root --POI "r_s0";
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs2_obs.MultiDimFit.mH120.root      --POI "r_s0";
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs3_nosigexp.MultiDimFit.mH120.root --POI "r_s1";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs3_expnosig.MultiDimFit.mH120.root --POI "r_s1";
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_split_grid_rs3_obs.MultiDimFit.mH120.root      --POI "r_s1";
-#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_grid_rs2_nosigexp.MultiDimFit.mH120.root --POI "r_s0";
+#python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_grid_rs2_expnosig.MultiDimFit.mH120.root --POI "r_s0";
 #python ~/ana_area/Combination/comb/plot1DScan.py higgsCombinessww_2019_fiducial6_mH${sampleName}_grid_rs2_obs.MultiDimFit.mH120.root	   --POI "r_s0";
 
 combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_fiducial6_mH${sampleName}_split_obs \
