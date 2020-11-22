@@ -449,7 +449,7 @@ combine -M MultiDimFit workspace_ssww_2019_fiducial92.root -n ssww_2019_fiducial
 #--setParameters r_s0=1,r_s1=1 -t -1 >& log_ssww_2019_fiducial5_grid_exp &
 #nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5.root -n ssww_2019_fiducial5_grid_obs \
 #--algo grid --points 5000 --setParameterRanges r_s0=-1.0,1.5:r_s1=0.0,2.5  \
-#--redefineSignalPOIs r_s0 -P r_s0 -P r_s1 --floatOtherPOIs=1 >& log_ssww_2019_fiducial5_grid_obs &
+#--redefineSignalPOIs r_s0,r_s1 -P r_s0 -P r_s1 --floatOtherPOIs=1 >& log_ssww_2019_fiducial5_grid_obs &
 
 nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_2019_fiducial5_grid_rs0_expnosig \
 --algo grid --points 500 --setParameterRanges r_s0=0.0,5.0 \
