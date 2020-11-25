@@ -524,6 +524,7 @@ nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  mlf obs >& log_mlf_ssww_comb_fiducial6_mH${sampleName}_obs &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_obs &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_expnosig &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts exp      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_exp &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_obs &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_expnosig &
 
