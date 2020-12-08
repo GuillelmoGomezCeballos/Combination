@@ -38,8 +38,8 @@ for sampleName in 115 120 125 150 200 300 500 800 1000; do
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts exp >& log_impacts_vbfg_${sampleName}_exp &
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts expnosig >& log_impacts_vbfg_${sampleName}_expnosig &
-    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof obs >& log_gof_vbfg_${sampleName}_obs &
-    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof exp >& log_gof_vbfg_${sampleName}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof obs      >& log_gof_vbfg_${sampleName}_obs &
+    nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} gof expnosig >& log_gof_vbfg_${sampleName}_expnosig &
    fi
    if [ ${sampleName} == '500' ]; then
     nohup ~/ana_area/Combination/comb/runFit.sh . vbfg${sampleName} impacts obs >& log_impacts_vbfg_${sampleName}_obs &
@@ -139,8 +139,8 @@ nohup ~/ana_area/Combination/comb/runFit.sh . zh_2018      mlf obs >& log_mlf_zh
 nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      mlf obs >& log_mlf_zh_comb_obs &
 
 echo "*****GOF*******"
-nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof obs >& log_gof_zh_obs &
-nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof exp >& log_gof_zh_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof obs      >& log_gof_zh_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb       gof expnosig >& log_gof_zh_expnosig &
 
 echo "*****GRID*******"
 nohup combine -M MultiDimFit workspace_zh_comb.root -n zh_comb_grid_rs0_expnosig \
@@ -513,8 +513,8 @@ echo "sample: "${sampleName};
 #grep -e "r_s0 <" -e "r_s1 <" log_runFits_*|awk '{xs=1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%6==0)printf("\n");if(NR%36==0)printf("--------------\n");}'
 
 combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMax 1.0
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1 -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMax 1.0
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0 -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMax 1.0
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMax 1.0
 ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance exp
 ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance obs
 
@@ -527,6 +527,8 @@ nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts exp      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_exp &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_obs &
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_comb_fiducial6_mH${sampleName}_expnosig &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  gof obs      >& log_gof_ssww_2019_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  gof expnosig >& log_gof_ssww_2019_fiducial6_mH${sampleName}_expnosig &
 
 fi
 

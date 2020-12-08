@@ -27,12 +27,17 @@ if [ $4 = "exp" ]; then
   PARAM="--setParameters r_s0=1 -t -1"; #--toysFrequentist
   PARAML="--noFitAsimov";
   ADDTEXT="_exp";
-  PARAMGOF="-t 500";
+  PARAMGOF="--setParameters r_s0=1 -t 500";
 elif [ $4 = "expnosig" ]; then
   PARAM="--setParameters r_s0=0 -t -1"; #--toysFrequentist
   PARAML="--noFitAsimov";
   ADDTEXT="_expnosig";
-  PARAMGOF="-t 500";
+  PARAMGOF="--setParameters r_s0=0 -t 500";
+elif [ $4 = "expnosig_postfit" ]; then
+  PARAM="--setParameters r_s0=0 -t -1 --toysFrequentist";
+  PARAML="--noFitAsimov";
+  ADDTEXT="_expnosig_postfit";
+  PARAMGOF="--setParameters r_s0=0 -t 500";
 fi
 
 if [ $3 = "mu" ]; then
