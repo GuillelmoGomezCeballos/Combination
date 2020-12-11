@@ -512,9 +512,16 @@ echo "sample: "${sampleName};
 
 #grep -e "r_s0 <" -e "r_s1 <" log_runFits_*|awk '{xs=1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%6==0)printf("\n");if(NR%36==0)printf("--------------\n");}'
 
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMax 1.0
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMax 1.0
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMax 1.0
+rMin0=0;rMin1=0;
+rMax0=1;rMax1=1;
+if [ ${sampleName} == 2000 ]; then
+  rMin0=0;rMin1=3;
+  rMax0=2;rMax1=20;
+fi
+
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMin ${rMin0} --rMax ${rMax0}
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMin ${rMin0} --rMax ${rMax0}
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMin ${rMin1} --rMax ${rMax1}
 ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance exp
 ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance obs
 
