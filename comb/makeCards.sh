@@ -713,7 +713,7 @@ ssww_2019_fiducial9.text -o workspace_ssww_2019_fiducial9_rs0only.root;
 
 elif [ $1 = "higgs" ]; then
 
-for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000; do
+for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000 3000; do
 #for sampleName in 500; do
 echo "sample: "${sampleName};
 

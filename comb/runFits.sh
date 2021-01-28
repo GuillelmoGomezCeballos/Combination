@@ -506,8 +506,8 @@ nohup combine -M MultiDimFit workspace_ssww_2019_fiducial5_rs0only.root -n ssww_
 elif [ $1 == "higgs" ]; then
 echo "*****HIGGS*******"
 
-for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000; do
-#for sampleName in 300; do
+for sampleName in 200 300 400 500 600 700 800 900 1000 1500 2000 3000; do
+#for sampleName in 500; do
 echo "sample: "${sampleName};
 
 #grep -e "r_s0 <" -e "r_s1 <" log_runFits_*|awk '{xs=1;if($1=="sample:")printf("%19s ",$2);else printf("%11.6f ",$5*xs);if(NR%6==0)printf("\n");if(NR%36==0)printf("--------------\n");}'
@@ -515,15 +515,12 @@ echo "sample: "${sampleName};
 rMin0=0;rMin1=0;
 rMax0=1;rMax1=1;
 if [ ${sampleName} == 2000 ]; then
-  rMin0=0;rMin1=3;
-  rMax0=2;rMax1=20;
+  rMin0=0;rMin1=0;
+  rMax0=2;rMax1=9;
+elif [ ${sampleName} == 3000 ]; then
+  rMin0=0;rMin1=0;
+  rMax0=10;rMax1=50;
 fi
-
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMin ${rMin0} --rMax ${rMax0}
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMin ${rMin0} --rMax ${rMax0}
-combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMin ${rMin1} --rMax ${rMax1}
-~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance exp
-~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance obs
 
 if [ ${sampleName} == 500 ]; then
 
@@ -538,6 +535,12 @@ nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName
 nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  gof expnosig >& log_gof_ssww_2019_fiducial6_mH${sampleName}_expnosig &
 
 fi
+
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMin ${rMin0} --rMax ${rMax0}
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMin ${rMin0} --rMax ${rMax0}
+combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMin ${rMin1} --rMax ${rMax1}
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName} significance obs
 
 #nohup combine -M MultiDimFit workspace_ssww_2019_fiducial6_mH${sampleName}_split.root -n ssww_2019_fiducial6_mH${sampleName}_split_grid_rs0_expnosig \
 #--algo grid --points 500 --setParameterRanges r_s0=-1,1 \

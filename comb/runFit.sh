@@ -52,7 +52,7 @@ elif [ $3 = "impacts" ]; then
 
 elif [ $3 = "mlf" ]; then
  #combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT} --plots --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-2 --rMax=3 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
-  combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT}         --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-1 --rMax=2 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
+  combine -M FitDiagnostics workspace_$2.root -n $2${ADDTEXT}         --saveNorm --saveShapes --saveWithUncertainties --saveOverall --ignoreCovWarning --rMin=-2 --rMax=3 --robustFit=1 --X-rtd FITTER_DYN_STEP $PARAM $5
 
 elif [ $3 = "significance" ]; then
   combine workspace_$2.root -M Significance --significance -n $2${ADDTEXT} $PARAM
