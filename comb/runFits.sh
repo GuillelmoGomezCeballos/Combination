@@ -206,6 +206,76 @@ nohup ~/ana_area/Combination/comb/runFit.sh . zhg_comb_125 impacts exp >& log_im
 echo "*****MLF*******"
 ~/ana_area/Combination/comb/runFit.sh . zhg_comb_125  mlf obs
 
+elif [ $1 = "ssww_hllhc" ]; then
+
+  fake="";
+  lumi=3000;
+  #for lumi in 3000; do
+  for lumi in 137 300 500 1000 2000 3000 4500 6000; do
+  #for fake in _fake0p50 _fake0p75 _fake1p00 _fake1p25 _fake1p50 _fake2p00; do
+  #for fake in _jetpt40 _jetpt50 _jetpt60 _jetpt80 _jetpt100; do
+ 
+    echo "sample: "${lumi}${fake};
+
+    if [ ${sampleName} == '3000' ]; then
+      nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial0_l${lumi}_wwframe${fake} mlf exp >& log_mlf_ssww_comb_fiducial0_l${lumi}_wwframe${fake}_exp &
+    fi
+
+    nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial0_l${lumi}_wwframe${fake} impacts exp >& log_impacts_ssww_comb_fiducial0_l${lumi}_wwframe${fake}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_l${lumi}_wwframe${fake} impacts exp >& log_impacts_ssww_comb_fiducial5_l${lumi}_wwframe${fake}_exp &
+    nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_l${lumi}_ppframe${fake} impacts exp >& log_impacts_ssww_comb_fiducial5_l${lumi}_ppframe${fake}_exp &
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial0_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial0_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0.7,1.3:r_s1=0.5,1.5:r_s2=0.7,1.3 \
+    --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
+
+    ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_l${lumi}_wwframe${fake}_rs0only significance exp
+    ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial5_l${lumi}_ppframe${fake}_rs0only significance exp
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial5_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial5_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-2,4:r_s1=0.5,1.5 \
+    --setParameters r_s0=1,r_s1=1 -t -1
+    combine -M MultiDimFit workspace_ssww_comb_fiducial5_l${lumi}_ppframe${fake}.root -n ssww_comb_fiducial5_l${lumi}_ppframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1 --setParameterRanges r_s0=-2,4:r_s1=0.5,1.5 \
+    --setParameters r_s0=1,r_s1=1 -t -1
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial51_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameterRanges r_s0=0.6,1.4:REWK=-0.8,2.8 --setParameters r_s0=1,REWK=1 -t -1
+    combine -M MultiDimFit workspace_ssww_comb_fiducial52_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial52_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameterRanges r_s0=0.6,1.4:REWK=-0.8,2.8 --setParameters r_s0=1,REWK=1 -t -1
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial51_l${lumi}_ppframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_ppframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameterRanges r_s0=0.6,1.4:REWK=-0.8,2.8 --setParameters r_s0=1,REWK=1 -t -1
+    combine -M MultiDimFit workspace_ssww_comb_fiducial52_l${lumi}_ppframe${fake}.root -n ssww_comb_fiducial52_l${lumi}_ppframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK --setParameterRanges r_s0=0.6,1.4:REWK=-0.8,2.8 --setParameters r_s0=1,REWK=1 -t -1
+
+  done
+
+
+elif [ $1 = "ssww_hllhc_3d" ]; then
+
+  fake="";
+  lumi=3000;
+  #for lumi in 3000; do
+  for lumi in 137 300 500 1000 2000 3000 4500 6000; do
+  #for fake in _fake0p50 _fake0p75 _fake1p00 _fake1p25 _fake1p50 _fake2p00; do
+  #for fake in _jetpt40 _jetpt50 _jetpt60 _jetpt80 _jetpt100; do
+ 
+    echo "sample: "${lumi}${fake};
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial51_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK2,REWK3 --setParameterRanges r_s0=0.6,1.4:REWK2=-2,4:REWK3=-2,4 --setParameters r_s0=1,REWK2=1,REWK3=1 -t -1
+    combine -M MultiDimFit workspace_ssww_comb_fiducial52_l${lumi}_wwframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_wwframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK1,REWK3 --setParameterRanges r_s0=0.6,1.4:REWK1=-2,4:REWK3=-2,4 --setParameters r_s0=1,REWK1=1,REWK3=1 -t -1
+
+    combine -M MultiDimFit workspace_ssww_comb_fiducial51_l${lumi}_ppframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_ppframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK2,REWK3 --setParameterRanges r_s0=0.6,1.4:REWK2=-2,4:REWK3=-2,4 --setParameters r_s0=1,REWK2=1,REWK3=1 -t -1
+    combine -M MultiDimFit workspace_ssww_comb_fiducial52_l${lumi}_ppframe${fake}.root -n ssww_comb_fiducial51_l${lumi}_ppframe${fake}_exp \
+    --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,REWK1,REWK3 --setParameterRanges r_s0=0.6,1.4:REWK1=-2,4:REWK3=-2,4 --setParameters r_s0=1,REWK1=1,REWK3=1 -t -1
+
+
+  done
+
 elif [ $1 = "ssww" ]; then
 echo "*****SSWW*******"
 ~/ana_area/Combination/comb/runFit.sh . ssww_2016_ww significance exp
@@ -536,6 +606,14 @@ nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName
 
 fi
 
+if [ ${sampleName} == 1000 ]; then
+
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts obs      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_obs &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts expnosig >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_expnosig &
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_2019_fiducial6_mH${sampleName}  impacts exp      >& log_impacts_ssww_2019_fiducial6_mH${sampleName}_exp &
+
+fi
+
 combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}.root       --newExpected=1 -n ssww_2019_fiducial6_mH${sampleName}_obs --rMin ${rMin0} --rMax ${rMax0}
 combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s0 --setParameters r_s1=0 --freezeParameters r_s1,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs0_obs --rMin ${rMin0} --rMax ${rMax0}
 combine -M AsymptoticLimits workspace_ssww_2019_fiducial6_mH${sampleName}_split.root --newExpected=1 --redefineSignalPOIs r_s1 --setParameters r_s0=0 --freezeParameters r_s0,QCDscale_Hpp,QCDscale_Hp -n ssww_2019_fiducial6_mH${sampleName}_split_rs1_obs --rMin ${rMin1} --rMax ${rMax1}
@@ -611,10 +689,12 @@ echo "*****IMPACTS*******"
 nohup ~/ana_area/Combination/comb/runFit.sh . ww_2016   impacts obs >& log_impacts_ww_2016 &
 nohup ~/ana_area/Combination/comb/runFit.sh . ww_2017   impacts obs >& log_impacts_ww_2017 &
 nohup ~/ana_area/Combination/comb/runFit.sh . ww_2018   impacts obs >& log_impacts_ww_2018 &
+nohup ~/ana_area/Combination/comb/runFit.sh . ww_2019   impacts obs >& log_impacts_ww_2019 &
 
 echo "*****MLF*******"
 ~/ana_area/Combination/comb/runFit.sh . ww_2016   mlf obs
 ~/ana_area/Combination/comb/runFit.sh . ww_2017   mlf obs
 ~/ana_area/Combination/comb/runFit.sh . ww_2018   mlf obs
+~/ana_area/Combination/comb/runFit.sh . ww_2019   mlf obs
 
 fi

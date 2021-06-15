@@ -209,6 +209,171 @@ ZHG_2017_300=zhg_2017_300.text \
 ZHG_2018_300=zhg_2018_300.text > zhg_comb_300.text;
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose --PO 'map=.*/BSM:r_s0[1,0,10]' zhg_comb_300.text -o workspace_zhg_comb_300.root;
 
+elif [ $1 = "ssww_hllhc" ]; then
+
+  fake="";
+  lumi=3000;
+  #for lumi in 3000; do
+  for lumi in 137 300 500 1000 2000 3000 4500 6000; do
+  #for fake in _fake0p50 _fake0p75 _fake1p00 _fake1p25 _fake1p50 _fake2p00; do
+  #for fake in _jetpt40 _jetpt50 _jetpt60 _jetpt80 _jetpt100; do
+ 
+    echo "sample: "${lumi}${fake};
+
+    combineCards.py -S \
+    SSWW_2016=datacard_ssww_2016_fiducial0_l${lumi}_wwframe${fake}.txt \
+    SSWW_2017=datacard_ssww_2017_fiducial0_l${lumi}_wwframe${fake}.txt \
+    SSWW_2018=datacard_ssww_2018_fiducial0_l${lumi}_wwframe${fake}.txt \
+    > ssww_comb_fiducial0_l${lumi}_wwframe${fake}.text;
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+    --PO 'map=.*/qqWW:r_s0[1,0,10]' \
+    --PO 'map=.*/EWKWZ:r_s1[1,0,10]' \
+    --PO 'map=.*/ggWW:r_s1[1,0,10]' \
+    --PO 'map=.*/WZ:r_s2[1,0,10]' \
+    ssww_comb_fiducial0_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial0_l${lumi}_wwframe${fake}.root;
+
+    combineCards.py -S \
+    SSWW_2016=datacard_ssww_2016_fiducial5_l${lumi}_wwframe${fake}.txt \
+    SSWW_2017=datacard_ssww_2017_fiducial5_l${lumi}_wwframe${fake}.txt \
+    SSWW_2018=datacard_ssww_2018_fiducial5_l${lumi}_wwframe${fake}.txt \
+    > ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC.C'(1,5,"l'${lumi}'_wwframe'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text datacard_add.txt > ssww_comb_fiducial51_l${lumi}_wwframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial51_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial51_l${lumi}_wwframe${fake}.root;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC.C'(2,5,"l'${lumi}'_wwframe'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text datacard_add.txt > ssww_comb_fiducial52_l${lumi}_wwframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial52_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial52_l${lumi}_wwframe${fake}.root;
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s1[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s1[1,0,10]' \
+    ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial5_l${lumi}_wwframe${fake}.root;
+
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial5_l${lumi}_wwframe${fake}_rs0only.root;
+
+    combineCards.py -S \
+    SSWW_2016=datacard_ssww_2016_fiducial5_l${lumi}_new${fake}.txt \
+    SSWW_2017=datacard_ssww_2017_fiducial5_l${lumi}_new${fake}.txt \
+    SSWW_2018=datacard_ssww_2018_fiducial5_l${lumi}_new${fake}.txt \
+    > ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC.C'(1,5,"l'${lumi}'_new'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text datacard_add.txt > ssww_comb_fiducial51_l${lumi}_ppframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial51_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial51_l${lumi}_ppframe${fake}.root;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC.C'(2,5,"l'${lumi}'_new'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text datacard_add.txt > ssww_comb_fiducial52_l${lumi}_ppframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial52_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial52_l${lumi}_ppframe${fake}.root;
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s1[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s1[1,0,10]' \
+    ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial5_l${lumi}_ppframe${fake}.root;
+
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal2 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2016 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2017 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+    echo "CMS_ssww_wwtxnorm  rateParam SSWW_2018 Signal3 1 [0.1,3]" >> ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text
+
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial5_l${lumi}_ppframe${fake}_rs0only.root;
+
+  done
+
+
+elif [ $1 = "ssww_hllhc_3d" ]; then
+
+  fake="";
+  lumi=3000;
+  #for lumi in 3000; do
+  for lumi in 137 300 500 1000 2000 3000 4500 6000; do
+  #for fake in _fake0p50 _fake0p75 _fake1p00 _fake1p25 _fake1p50 _fake2p00; do
+  #for fake in _jetpt40 _jetpt50 _jetpt60 _jetpt80 _jetpt100; do
+ 
+    echo "sample: "${lumi}${fake};
+
+    combineCards.py -S \
+    SSWW_2016=datacard_ssww_2016_fiducial5_l${lumi}_wwframe${fake}.txt \
+    SSWW_2017=datacard_ssww_2017_fiducial5_l${lumi}_wwframe${fake}.txt \
+    SSWW_2018=datacard_ssww_2018_fiducial5_l${lumi}_wwframe${fake}.txt \
+    > ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text;
+    grep -v autoMCStats ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text > lll; mv lll ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC_3D.C'(1,5,"l'${lumi}'_wwframe'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text datacard_add.txt > ssww_comb_fiducial51_l${lumi}_wwframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial51_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial51_l${lumi}_wwframe${fake}.root;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC_3D.C'(2,5,"l'${lumi}'_wwframe'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_wwframe${fake}.text datacard_add.txt > ssww_comb_fiducial52_l${lumi}_wwframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial52_l${lumi}_wwframe${fake}.text -o workspace_ssww_comb_fiducial52_l${lumi}_wwframe${fake}.root;
+
+    combineCards.py -S \
+    SSWW_2016=datacard_ssww_2016_fiducial5_l${lumi}_new${fake}.txt \
+    SSWW_2017=datacard_ssww_2017_fiducial5_l${lumi}_new${fake}.txt \
+    SSWW_2018=datacard_ssww_2018_fiducial5_l${lumi}_new${fake}.txt \
+    > ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text;
+    grep -v autoMCStats ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text > lll; mv lll ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC_3D.C'(1,5,"l'${lumi}'_new'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text datacard_add.txt > ssww_comb_fiducial51_l${lumi}_ppframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial51_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial51_l${lumi}_ppframe${fake}.root;
+
+    root -l -q -b ../Combination/comb/makeSSWWLLParam_HLLHC_3D.C'(2,5,"l'${lumi}'_new'${fake}'")'
+    cat ssww_comb_fiducial5_l${lumi}_ppframe${fake}.text datacard_add.txt > ssww_comb_fiducial52_l${lumi}_ppframe${fake}.text;
+    text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+    --PO 'map=.*/Signal1:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal2:r_s0[1,0,10]' \
+    --PO 'map=.*/Signal3:r_s0[1,0,10]' \
+    ssww_comb_fiducial52_l${lumi}_ppframe${fake}.text -o workspace_ssww_comb_fiducial52_l${lumi}_ppframe${fake}.root;
+
+  done
+
 elif [ $1 = "ssww" ]; then
 
 combineCards.py -S ch1=datacard_ssww_2016.txt > ssww_2016.text;
@@ -787,6 +952,12 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel -
 --PO 'map=.*/qqWW:r_s0[1,0,10]' \
 --PO 'map=.*/ggWW:r_s0[1,0,10]' \
 ww_2018.text -o workspace_ww_2018.root;
+
+combineCards.py -S datacard_ww_201[6,7,8].txt > ww_2019.text;
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/qqWW:r_s0[1,0,10]' \
+--PO 'map=.*/ggWW:r_s0[1,0,10]' \
+ww_2019.text -o workspace_ww_2019.root;
 
 fi
 
