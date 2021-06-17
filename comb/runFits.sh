@@ -217,7 +217,7 @@ elif [ $1 = "ssww_hllhc" ]; then
  
     echo "sample: "${lumi}${fake};
 
-    if [ ${sampleName} == '3000' ]; then
+    if [ ${lumi} == '3000' ]; then
       nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_fiducial0_l${lumi}_wwframe${fake} mlf exp >& log_mlf_ssww_comb_fiducial0_l${lumi}_wwframe${fake}_exp &
     fi
 
