@@ -374,6 +374,31 @@ elif [ $1 = "ssww_hllhc_3d" ]; then
 
   done
 
+elif [ $1 = "ssww_altcr" ]; then
+
+combineCards.py -S \
+SSWW_2016=datacard_ssww_2016_fiducial10.txt \
+SSWW_2017=datacard_ssww_2017_fiducial10.txt \
+SSWW_2018=datacard_ssww_2018_fiducial10.txt > ssww_comb.text;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+--PO 'map=.*/qqWW:r_s0[1,0,10]' \
+ssww_comb.text -o workspace_ssww_comb_ww.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
+--PO 'map=.*/ggWW:r_s0[1,0,10]' \
+ssww_comb.text -o workspace_ssww_comb_wz.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+--PO 'map=.*/qqWW:r_s0[1,0,10]' \
+--PO 'map=.*/EWKWZ:r_s1[1,0,10]' \
+--PO 'map=.*/ggWW:r_s1[1,0,10]' \
+--PO 'map=.*/WZ:r_s2[1,0,10]' \
+ssww_comb.text -o workspace_ssww_comb_wwwz.root;
+
 elif [ $1 = "ssww" ]; then
 
 combineCards.py -S ch1=datacard_ssww_2016.txt > ssww_2016.text;

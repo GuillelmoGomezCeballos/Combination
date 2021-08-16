@@ -276,6 +276,17 @@ elif [ $1 = "ssww_hllhc_3d" ]; then
 
   done
 
+elif [ $1 = "ssww_altcr" ]; then
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_ww significance obs
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance exp
+~/ana_area/Combination/comb/runFit.sh . ssww_comb_wz significance obs
+
+nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb_wwwz mlf obs >& log_mlf_comb_wwwz_obs &
+
+combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
+combine -M MultiDimFit workspace_ssww_comb_wwwz.root -n ssww_comb_wwwz_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2
+
 elif [ $1 = "ssww" ]; then
 echo "*****SSWW*******"
 ~/ana_area/Combination/comb/runFit.sh . ssww_2016_ww significance exp
