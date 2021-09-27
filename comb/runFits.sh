@@ -122,6 +122,8 @@ echo "*****MLF*******"
 nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      mlf obs >& log_mlf_zh_comb_obs &
 
 ~/ana_area/Combination/comb/runFit.sh . zh_comb limit obs
+~/ana_area/Combination/comb/runFit.sh . zh_comb significance exp
+~/ana_area/Combination/comb/runFit.sh . zh_comb significance obs
 
 elif [ $1 = "zh" ]; then
 #grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'
