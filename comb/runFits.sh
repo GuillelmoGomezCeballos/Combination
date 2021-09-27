@@ -109,6 +109,20 @@ nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb impacts expno
 
 nohup ~/ana_area/Combination/comb/runFit.sh . zh${sampleName}_comb mlf obs >& log_mlf_zh${sampleName}_comb_obs &
 
+elif [ $1 = "zhinv" ]; then
+#grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'
+#grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'|awk '{printf("%5.2f %5.2f %5.2f %5.2f\n",$1,$4-$3,$4,$5-$4)}'
+
+echo "*****IMPACTS*******"
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts obs >& log_impacts_zh &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts exp >& log_impacts_zh_exp &
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      impacts expnosig >& log_impacts_zh_expnosig &
+
+echo "*****MLF*******"
+nohup ~/ana_area/Combination/comb/runFit.sh . zh_comb      mlf obs >& log_mlf_zh_comb_obs &
+
+~/ana_area/Combination/comb/runFit.sh . zh_comb limit obs
+
 elif [ $1 = "zh" ]; then
 #grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'
 #grep -e sample -e r_s0 log_runFits_zh|awk '{if($1=="sample:")printf("%10s ",$2);else printf("%11.6f ",$5);if(NR%6==0)printf("\n");}'|awk '{printf("%5.2f %5.2f %5.2f %5.2f\n",$1,$4-$3,$4,$5-$4)}'

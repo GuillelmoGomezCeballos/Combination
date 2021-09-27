@@ -120,6 +120,25 @@ for sampleName in `cat list_of_samples.txt`; do
 
 done
 
+elif [ $1 = "zhinv" ]; then
+
+sampleName=""
+
+combineCards.py -S \
+ZH0_2016=datacard_zh${sampleName}_2016_0j.txt \
+ZH1_2016=datacard_zh${sampleName}_2016_1j.txt \
+WZ_2016=datacard_wz_2016.txt \
+ZZ_2016=datacard_zz_2016.txt \
+ZH0_2017=datacard_zh${sampleName}_2017_0j.txt \
+ZH1_2017=datacard_zh${sampleName}_2017_1j.txt \
+WZ_2017=datacard_wz_2017.txt \
+ZZ_2017=datacard_zz_2017.txt \
+ZH0_2018=datacard_zh${sampleName}_2018_0j.txt \
+ZH1_2018=datacard_zh${sampleName}_2018_1j.txt \
+WZ_2018=datacard_wz_2018.txt \
+ZZ_2018=datacard_zz_2018.txt > zh${sampleName}_comb.text;
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose --PO 'map=.*/ZH_hinv:r_s0[1,0,10]' --PO 'map=.*/ggZH_hinv:r_s0[1,0,10]' zh${sampleName}_comb.text -o workspace_zh${sampleName}_comb.root;
+
 elif [ $1 = "zh" ]; then
 
 export sampleName=""
