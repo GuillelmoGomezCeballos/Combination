@@ -413,6 +413,16 @@ text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel -
 --PO 'map=.*/WZ:r_s2[1,0,10]' \
 ssww_combA.text -o workspace_ssww_comb0.root;
 
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
+--PO 'map=.*/IntfWW:r_s0[1,0,10]' \
+ssww_combA.text -o workspace_ssww_wwonly.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
+--PO 'map=.*/IntfWZ:r_s0[1,0,10]' \
+ssww_combA.text -o workspace_ssww_wzonly.root;
+
 # Signal0 (EW W+W+), Signal1 (EW W-W-), Signal2 (EW W+Z), Signal3 (EW W-Z), WZ (QCD WZ)
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
