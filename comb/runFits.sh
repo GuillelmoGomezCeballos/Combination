@@ -292,27 +292,6 @@ elif [ $1 = "ssww_hllhc_3d" ]; then
 
   done
 
-elif [ $1 = "ssww_alt" ]; then
-
-nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb0 mlf obs >& log_mlf_comb0_obs &
-nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb1 mlf obs >& log_mlf_comb1_obs &
-nohup ~/ana_area/Combination/comb/runFit.sh . ssww_comb2 mlf obs >& log_mlf_comb2_obs &
-
-combine workspace_ssww_wwonly.root -M Significance --significance -n ssww_wwonly_exp --setParameters r_s0=1 -t -1
-combine workspace_ssww_wwonly.root -M Significance --significance -n ssww_wwonly_obs
-
-combine workspace_ssww_wzonly.root -M Significance --significance -n ssww_wzonly_exp --setParameters r_s0=1 -t -1
-combine workspace_ssww_wzonly.root -M Significance --significance -n ssww_wzonly_obs
-
-combine -M MultiDimFit workspace_ssww_comb0.root -n ssww_comb0_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
-combine -M MultiDimFit workspace_ssww_comb0.root -n ssww_comb0_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0.5,1.5:r_s1=0.2,2.0:r_s2=0.2,2.0
-
-combine -M MultiDimFit workspace_ssww_comb1.root -n ssww_comb1_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameters r_s0=1,r_s1=1,r_s2=1 -t -1
-combine -M MultiDimFit workspace_ssww_comb1.root -n ssww_comb1_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2 --setParameterRanges r_s0=0.5,1.5:r_s1=0.2,2.0:r_s2=0.2,2.0
-
-combine -M MultiDimFit workspace_ssww_comb2.root -n ssww_comb2_exp --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2,r_s3,r_s4 --setParameters r_s0=1,r_s1=1,r_s2=1,r_s3=1,r_s4=1 -t -1
-combine -M MultiDimFit workspace_ssww_comb2.root -n ssww_comb2_obs --algo=singles --robustFit=1 --X-rtd FITTER_DYN_STEP  --redefineSignalPOIs r_s0,r_s1,r_s2,r_s3,r_s4 --setParameterRanges r_s0=0.5,1.5:r_s1=0.2,2.0:r_s2=0.2,2.0:r_s3=0.2,2.0:r_s4=0.2,2.0
-
 elif [ $1 = "ssww" ]; then
 echo "*****SSWW*******"
 ~/ana_area/Combination/comb/runFit.sh . ssww_2016_ww significance exp
