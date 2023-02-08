@@ -393,30 +393,43 @@ elif [ $1 = "ssww_hllhc_3d" ]; then
 
   done
 
-elif [ $1 = "ssww_altcr" ]; then
+elif [ $1 = "ssww_alt" ]; then
+
+combineCards.py -S \
+SSWW_2016=datacard_ssww_2016_fiducial0.txt \
+SSWW_2017=datacard_ssww_2017_fiducial0.txt \
+SSWW_2018=datacard_ssww_2018_fiducial0.txt > ssww_combA.text;
 
 combineCards.py -S \
 SSWW_2016=datacard_ssww_2016_fiducial10.txt \
 SSWW_2017=datacard_ssww_2017_fiducial10.txt \
-SSWW_2018=datacard_ssww_2018_fiducial10.txt > ssww_comb.text;
+SSWW_2018=datacard_ssww_2018_fiducial10.txt > ssww_combB.text;
 
 text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
 --PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
-ssww_comb.text -o workspace_ssww_comb_ww.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKWZ:r_s0[1,0,10]' \
---PO 'map=.*/ggWW:r_s0[1,0,10]' \
-ssww_comb.text -o workspace_ssww_comb_wz.root;
-
-text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
---PO 'map=.*/EWKSSWW:r_s0[1,0,10]' \
---PO 'map=.*/qqWW:r_s0[1,0,10]' \
+--PO 'map=.*/IntfWW:r_s0[1,0,10]' \
 --PO 'map=.*/EWKWZ:r_s1[1,0,10]' \
---PO 'map=.*/ggWW:r_s1[1,0,10]' \
+--PO 'map=.*/IntfWZ:r_s1[1,0,10]' \
 --PO 'map=.*/WZ:r_s2[1,0,10]' \
-ssww_comb.text -o workspace_ssww_comb_wwwz.root;
+ssww_combA.text -o workspace_ssww_comb0.root;
+
+# Signal0 (EW W+W+), Signal1 (EW W-W-), Signal2 (EW W+Z), Signal3 (EW W-Z), WZ (QCD WZ)
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal0:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s0[1,0,10]' \
+--PO 'map=.*/Signal2:r_s1[1,0,10]' \
+--PO 'map=.*/Signal3:r_s1[1,0,10]' \
+--PO 'map=.*/WZ:r_s2[1,0,10]' \
+ssww_combB.text -o workspace_ssww_comb1.root;
+
+text2workspace.py -P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel --PO verbose \
+--PO 'map=.*/Signal0:r_s0[1,0,10]' \
+--PO 'map=.*/Signal1:r_s1[1,0,10]' \
+--PO 'map=.*/Signal2:r_s2[1,0,10]' \
+--PO 'map=.*/Signal3:r_s3[1,0,10]' \
+--PO 'map=.*/WZ:r_s4[1,0,10]' \
+ssww_combB.text -o workspace_ssww_comb2.root;
 
 elif [ $1 = "ssww" ]; then
 
